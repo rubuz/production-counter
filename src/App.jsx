@@ -3,6 +3,12 @@ import "./App.css";
 import Progress from "./Progress";
 
 function App() {
+  const dayDone = 5;
+  const dayPlan = 20;
+
+  const monthDone = 45;
+  const monthPlan = 64;
+
   return (
     <>
       <main>
@@ -16,14 +22,14 @@ function App() {
         </div>
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
-          <p className="grid-item">5</p>
-          <p className="grid-item">17</p>
-          <Progress className="progress" />
+          <p className="grid-item">{dayDone}</p>
+          <p className="grid-item">{dayPlan}</p>
+          <Progress className="progress" done={dayDone} plan={dayPlan} />
         </div>
         <h2 className="grid-item">MESEC</h2>
-        <p className="grid-item">5</p>
-        <p className="grid-item">17</p>
-        <Progress className="progress" />
+        <p className="grid-item">{monthDone}</p>
+        <p className="grid-item">{monthPlan}</p>
+        <Progress className="progress" done={monthDone} plan={monthPlan} />
       </main>
     </>
   );
