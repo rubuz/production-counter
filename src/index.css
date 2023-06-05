@@ -1,5 +1,6 @@
 :root {
   --ff-regular: "Inter", sans-serif;
+  --ff-numbers: "Lato", sans-serif;
 
   --fs-normal: 1rem;
   --fs-large: 1.3rem;
@@ -52,7 +53,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: var(--ff-regular);
+  font-family: var(--ff-numbers);
 }
 /*
   6. Improve media defaults

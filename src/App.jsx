@@ -1,6 +1,4 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import sonicIcon from "./assets/sonic.png";
 import "./App.css";
 import Progress from "./Progress";
 
@@ -9,8 +7,8 @@ function App() {
     <>
       <main>
         <div className="header-wrapper grid-item">
-          <div className="img-contianer grid-item header-item-first">
-            <img src={viteLogo} alt="" />
+          <div className="img-container grid-item header-item-first">
+            <img src={sonicIcon} alt="" />
           </div>
           <h1 className="grid-item">NAREJENO</h1>
           <h1 className="grid-item">PLAN</h1>
