@@ -1,6 +1,7 @@
 :root {
   --ff-regular: "Inter", sans-serif;
   --ff-numbers: "Lato", sans-serif;
+  --ff-numbers-secondary: "Fjalla One", sans-serif;
 
   --fs-normal: 1rem;
   --fs-large: 1.3rem;
@@ -15,7 +16,7 @@
   --clr-accent: #d20000;
   --clr-neutral-100: #fdfdfd;
   --clr-neutral-700: #f5f5f5;
-  --clr-neutral-800: #878787;
+  --clr-neutral-800: #aaaaaa;
   --clr-neutral-900: #5a5a5a;
   --clr-text: #000;
   --clr-bg: #fdfdfd;
