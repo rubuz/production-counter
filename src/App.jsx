@@ -3,11 +3,11 @@ import "./App.css";
 import Progress from "./Progress";
 
 function App() {
-  const dayDone = 5;
+  const dayDone = 18;
   const dayPlan = 20;
 
-  const monthDone = 45;
-  const monthPlan = 64;
+  const monthDone = 56;
+  const monthPlan = 232;
 
   return (
     <>
