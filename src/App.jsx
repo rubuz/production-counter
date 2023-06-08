@@ -52,8 +52,6 @@ function App() {
     };
   }, []);
 
-  console.log("reload");
-
   const dayPlan = data[0].planirano || 0;
   const monthPlan = data[1].planirano || 0;
   const dayDone = data[0].proizvedeno || 0;
