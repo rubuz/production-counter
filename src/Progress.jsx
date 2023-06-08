@@ -6,7 +6,6 @@ const Progress = (props) => {
 
   const procentage = Math.round((props.done / props.plan) * 100);
   const progressBar = -100 + procentage;
-  console.log(progressBar);
 
   const getColor = () => {
     if (procentage < 30) {
