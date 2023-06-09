@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import "./progress.css";
 
 const Progress = (props) => {
-  const [progress, setProgress] = useState(0);
-
   const procentage = Math.round((props.done / props.plan) * 100);
   const progressBar = -100 + procentage;
 
