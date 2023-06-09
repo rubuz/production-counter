@@ -5,39 +5,30 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  // const url =
-  //   "https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/63200";
-  // const url = "https://fakestoreapi.com/products/1";
-  // fetch(url, {
-  //   method: "GET",
-  //   headers: {
-  //     Authorization: "Basic ProizvodnjaWCFSecureUser:9uhY8vmdsVyZtHCH8d5a",
-  //     "Content-type": "application/json",
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((error) => {
-  //     console.log("ERROR");
-  //   });
-
-  const config = {
-    headers: {
-      Authorization:
-        "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
-    },
-  };
   const url =
-    " https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/63200";
-  const [data, setData] = useState({});
+    "https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/63200";
+  const token =
+    "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh";
+  const [data, setData] = useState([]);
 
   const fetchData = () => {
-    axios
-      .get(url, config)
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+    fetch(url, {
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((responseData) => {
+        setData(responseData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -52,10 +43,45 @@ function App() {
     };
   }, []);
 
-  const dayPlan = data[0].planirano || 0;
-  const monthPlan = data[1].planirano || 0;
-  const dayDone = data[0].proizvedeno || 0;
-  const monthDone = data[1].proizvedeno || 0;
+  // const config = {
+  //   headers: {
+  //     Authorization:
+  //       "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
+  //   },
+  // };
+  // const url =
+  //   "https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/63200";
+  // const [data, setData] = useState([]);
+
+  // const fetchData = () => {
+  //   axios
+  //     .get(url, config)
+  //     .then((res) => setData(res))
+  //     .catch((err) => console.log(err));
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+
+  //   const interval = setInterval(() => {
+  //     fetchData();
+  //     console.log(data);
+  //   }, 2000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
+
+  const dayPlan = data.length > 0 ? data[0].planirano || 0 : 0;
+  const monthPlan = data.length > 1 ? data[1].planirano || 0 : 0;
+  const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
+  const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
+
+  // const dayPlan = 3;
+  // const monthPlan = 20;
+  // const dayDone = 0;
+  // const monthDone = 0;
 
   // const handleDayIncrement = () => {
   //   setDayDone(dayDone + 1);

@@ -1,16 +1,23 @@
-import React, { useState } from "react";
 import "./progress.css";
 
 const Progress = (props) => {
-  const [progress, setProgress] = useState(0);
+  const procentageCalc = (done, plan) => {
+    if (plan === 0) {
+      return 0;
+    } else {
+      return Math.round((done / plan) * 100);
+    }
+  };
 
-  const procentage = Math.round((props.done / props.plan) * 100);
-  const progressBar = -100 + procentage;
+  const progressBar = -100 + procentageCalc(props.done, props.plan);
+
+  // const procentage = Math.round((props.done / props.plan) * 100);
+  // const progressBar = -100 + procentage;
 
   const getColor = () => {
-    if (procentage < 30) {
+    if (procentageCalc(props.done, props.plan) < 30) {
       return "#d20000";
-    } else if (procentage < 80) {
+    } else if (procentageCalc(props.done, props.plan) < 80) {
       return "#ffa500";
     } else {
       return "#2ecc71";
@@ -27,7 +34,9 @@ const Progress = (props) => {
             backgroundColor: getColor(),
           }}
         ></div>
-        <span className="progress-procentage">{procentage}</span>
+        <span className="progress-procentage">
+          {procentageCalc(props.done, props.plan)}
+        </span>
       </div>
     </div>
   );
