@@ -2,7 +2,6 @@ import sonicIcon from "./assets/sonic.png";
 import "./App.css";
 import Progress from "./Progress";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import AnimateNumber from "./AnimateNumber";
 
 function App() {
