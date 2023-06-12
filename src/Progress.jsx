@@ -29,10 +29,14 @@ const Progress = (props) => {
       <div className="progress-bar">
         <div
           className="progress-bar-fill"
-          style={{
-            transform: `translateX(${progressBar}%)`,
-            backgroundColor: getColor(),
-          }}
+          style={
+            procentageCalc(props.done, props.plan) > 100
+              ? { transform: "translateX(0)", backgroundColor: "#2ecc71" }
+              : {
+                  transform: `translateX(${progressBar}%)`,
+                  backgroundColor: getColor(),
+                }
+          }
         ></div>
         <span className="progress-procentage">
           {procentageCalc(props.done, props.plan)}

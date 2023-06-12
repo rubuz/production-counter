@@ -1,0 +1,31 @@
+.number-animation-up {
+  animation: numberUp 1s;
+}
+
+.number-animation-down {
+  animation: numberDown 1s;
+}
+
+@keyframes numberUp {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    color: #2ecc71;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes numberDown {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    color: #d20000;
+  }
+  100% {
+    opacity: 1;
+  }
+}

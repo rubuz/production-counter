@@ -3,6 +3,7 @@ import "./App.css";
 import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AnimateNumber from "./AnimateNumber";
 
 function App() {
   const url =
@@ -83,9 +84,10 @@ function App() {
   // const dayDone = 0;
   // const monthDone = 0;
 
+  // const [test, setTest] = useState(1);
+
   // const handleDayIncrement = () => {
-  //   setDayDone(dayDone + 1);
-  //   setMonthDone(monthDone + 1);
+  //   setTest((prevTest) => prevTest + 1);
   // };
 
   return (
@@ -102,13 +104,15 @@ function App() {
         </div>
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
-          <p className="grid-item">{dayDone}</p>
+          <p className="grid-item">
+            <AnimateNumber value={dayDone} />
+          </p>
           <p className="grid-item">{dayPlan}</p>
           <Progress className="progress" done={dayDone} plan={dayPlan} />
         </div>
         <h2 className="grid-item">MESEC</h2>
         <p className="grid-item">
-          <span>{monthDone}</span>
+          <AnimateNumber value={monthDone} />
         </p>
         <p className="grid-item">{monthPlan}</p>
         <Progress className="progress" done={monthDone} plan={monthPlan} />
