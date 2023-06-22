@@ -6,7 +6,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 200px repeat(3, 1fr);
+  grid-template-columns: 150px repeat(2, 1fr) 20%;
   grid-template-rows: 200px auto auto;
   background-color: var(--clr-neutral-100);
   min-height: 98vh;
@@ -25,7 +25,7 @@ h1 {
 }
 
 p {
-  font-size: 17rem;
+  font-size: 15rem;
   font-weight: var(--fw-bolder);
 }
 
