@@ -74,6 +74,7 @@ function App() {
   // }, []);
 
   const dayPlan = data.length > 0 ? data[0].planirano || 0 : 0;
+  const dayPlanEnd = data.length > 0 ? data[0].planirano_konec_dneva || 0 : 0;
   const monthPlan = data.length > 1 ? data[1].planirano || 0 : 0;
   const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
   const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
@@ -97,7 +98,7 @@ function App() {
           <div className="img-container grid-item header-item-first">
             <img src={sonicIcon} alt="" />
           </div>
-          <h1 className="grid-item">NAREJENO</h1>
+          <h1 className="grid-item">REALIZIRANO</h1>
           <h1 className="grid-item">PLAN</h1>
           <h1 className="grid-item header-item-last">%</h1>
         </div>
@@ -106,7 +107,9 @@ function App() {
           <p className="grid-item">
             <AnimateNumber value={dayDone} />
           </p>
-          <p className="grid-item">{dayPlan}</p>
+          <p className="grid-item">
+            {dayPlan}/{dayPlanEnd}
+          </p>
           <Progress className="progress" done={dayDone} plan={dayPlan} />
         </div>
         <h2 className="grid-item">MESEC</h2>
