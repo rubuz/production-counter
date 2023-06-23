@@ -42,6 +42,11 @@ img {
   width: 70%;
 }
 
+.done-number {
+  font-size: 15rem;
+  font-weight: var(--fw-bolder);
+}
+
 .header-wrapper,
 .second-wrapper {
   display: contents;

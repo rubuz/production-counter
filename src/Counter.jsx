@@ -48,7 +48,7 @@ const Counter = ({ line, logo }) => {
   const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
   const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
 
-  console.log(logo);
+  console.log(dayPlanEnd);
 
   return (
     <>
@@ -64,18 +64,18 @@ const Counter = ({ line, logo }) => {
         </div>
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
-          <p className="grid-item">
+          <div className="grid-item done-number">
             <AnimateNumber value={dayDone} />
-          </p>
+          </div>
           <p className="grid-item">
             {dayPlan}/{dayPlanEnd}
           </p>
           <Progress className="progress" done={dayDone} plan={dayPlanEnd} />
         </div>
         <h2 className="grid-item">MESEC</h2>
-        <p className="grid-item">
+        <div className="grid-item done-number">
           <AnimateNumber value={monthDone} />
-        </p>
+        </div>
         <p className="grid-item">{monthPlan}</p>
         <Progress className="progress" done={monthDone} plan={monthPlan} />
       </main>
