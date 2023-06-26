@@ -9,6 +9,7 @@ import caravan from "./assets/caravan.png";
 function App() {
   return (
     <Routes>
+      <Route path="/*" element={<Counter line={62100} logo={caravan} />} />
       <Route path="/62100" element={<Counter line={62100} logo={caravan} />} />
       <Route path="/62200" element={<Counter line={62200} logo={caravan} />} />
       <Route
