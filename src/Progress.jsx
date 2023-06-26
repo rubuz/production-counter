@@ -39,7 +39,9 @@ const Progress = (props) => {
           }
         ></div>
         <span className="progress-procentage">
-          {procentageCalc(props.done, props.plan)}
+          {isNaN(procentageCalc(props.done, props.plan))
+            ? 0
+            : procentageCalc(props.done, props.plan)}
         </span>
       </div>
     </div>
