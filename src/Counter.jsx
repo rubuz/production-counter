@@ -35,7 +35,7 @@ const Counter = ({ line, logo }) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 60000);
+    }, 600000);
 
     return () => {
       clearInterval(interval);
