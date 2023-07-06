@@ -48,7 +48,15 @@ const Counter = ({ line, logo }) => {
   const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
   const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
 
-  console.log(dayPlanEnd);
+  const numberColor = (done, plan) => {
+    if (plan < done) {
+      return "#2ecc71";
+    } else if (plan > done) {
+      return "#d20000";
+    } else {
+      return "#000";
+    }
+  };
 
   return (
     <>
@@ -64,7 +72,10 @@ const Counter = ({ line, logo }) => {
         </div>
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
-          <div className="grid-item done-number">
+          <div
+            className="grid-item done-number"
+            style={{ color: numberColor(dayDone, dayPlan) }}
+          >
             <AnimateNumber value={dayDone} />
           </div>
           <p className="grid-item">
@@ -73,7 +84,10 @@ const Counter = ({ line, logo }) => {
           <Progress className="progress" done={dayDone} plan={dayPlanEnd} />
         </div>
         <h2 className="grid-item">MESEC</h2>
-        <div className="grid-item done-number">
+        <div
+          className="grid-item done-number"
+          style={{ color: numberColor(monthDone, monthPlan) }}
+        >
           <AnimateNumber value={monthDone} />
         </div>
         <p className="grid-item">{monthPlan}</p>

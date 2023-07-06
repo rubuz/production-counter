@@ -15,9 +15,9 @@ const Progress = (props) => {
   // const progressBar = -100 + procentage;
 
   const getColor = () => {
-    if (procentageCalc(props.done, props.plan) < 30) {
+    if (procentageCalc(props.done, props.plan) < 50) {
       return "#d20000";
-    } else if (procentageCalc(props.done, props.plan) < 80) {
+    } else if (procentageCalc(props.done, props.plan) < 99) {
       return "#ffa500";
     } else {
       return "#2ecc71";
