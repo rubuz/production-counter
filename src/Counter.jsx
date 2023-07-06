@@ -48,6 +48,7 @@ const Counter = ({ line, logo }) => {
   const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
   const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
 
+  //number color changer
   const numberColor = (done, plan) => {
     if (plan < done) {
       return "#2ecc71";
