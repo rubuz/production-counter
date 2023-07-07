@@ -92,3 +92,8 @@ img {
 .second-wrapper-first {
   border-radius: 0 0 0 50px;
 }
+
+.app-container {
+  position: relative;
+  overflow-x: hidden;
+}

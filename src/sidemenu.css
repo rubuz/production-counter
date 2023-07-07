@@ -1,0 +1,31 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: none;
+  padding: none;
+}
+
+a {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  color: var(--clr-text);
+  font-size: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--clr-neutral-800);
+}
+
+li:last-of-type > a {
+  border-radius: 0 0 2rem 0;
+}
+
+a > span {
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary);
+  transition: 0.3s ease;
+}
