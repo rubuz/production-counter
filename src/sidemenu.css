@@ -13,7 +13,7 @@ a {
   color: var(--clr-text);
   font-size: 1.5rem;
   width: 100%;
-  border-bottom: 1px solid var(--clr-neutral-800);
+  /* border-bottom: 1px solid var(--clr-neutral-800); */
 }
 
 li:last-of-type > a {
