@@ -1,14 +1,16 @@
-import React from "react";
 import "./App.css";
+import "./counter.css";
 import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";
+import SideMenu from "./SideMenu";
 
 const Counter = ({ line, logo }) => {
   const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
   const token =
     "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh";
   const [data, setData] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const fetchData = () => {
     fetch(url, {
@@ -59,13 +61,21 @@ const Counter = ({ line, logo }) => {
     }
   };
 
+  // icon click
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <>
+    <div
+      className={`app ${isMenuOpen ? "menu-open" : ""}`}
+      onClick={toggleMenu}
+    >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main>
+      <main class="main">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" onClick={toggleMenu} />
           </div>
           <h1 className="grid-item">REALIZIRANO</h1>
           <h1 className="grid-item">PLAN</h1>
@@ -94,7 +104,10 @@ const Counter = ({ line, logo }) => {
         <p className="grid-item">{monthPlan}</p>
         <Progress className="progress" done={monthDone} plan={monthPlan} />
       </main>
-    </>
+      <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+        <SideMenu />
+      </div>
+    </div>
   );
 };
 
