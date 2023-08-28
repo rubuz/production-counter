@@ -30,7 +30,7 @@ const SideMenu = () => {
           </a>
         </li>
         <li>
-          <a href="/62200">
+          <a href="/65300">
             <span>65300 </span>Active Bič
           </a>
         </li>

@@ -92,7 +92,7 @@ const Counter = ({ line, logo }) => {
           <p className="grid-item">
             {dayPlan}/{dayPlanEnd}
           </p>
-          <Progress className="progress" done={dayDone} plan={dayPlanEnd} />
+          <Progress className="progress" done={dayDone} plan={dayPlan} />
         </div>
         <h2 className="grid-item">MESEC</h2>
         <div
