@@ -46,8 +46,10 @@ const Counter = ({ line, logo }) => {
 
   const dayPlan = data.length > 0 ? data[0].planirano || 0 : 0;
   const dayPlanEnd = data.length > 0 ? data[0].planirano_konec_dneva || 0 : 0;
-  const monthPlan = data.length > 1 ? data[1].planirano || 0 : 0;
   const dayDone = data.length > 0 ? data[0].proizvedeno || 0 : 0;
+  const monthPlan = data.length > 1 ? data[1].planirano || 0 : 0;
+  const monthPlanCurrent =
+    data.length > 1 ? data[1].planirano_konec_dneva || 0 : 0;
   const monthDone = data.length > 1 ? data[1].proizvedeno || 0 : 0;
 
   //number color changer
@@ -101,7 +103,9 @@ const Counter = ({ line, logo }) => {
         >
           <AnimateNumber value={monthDone} />
         </div>
-        <p className="grid-item">{monthPlan}</p>
+        <p className="grid-item">
+          {monthPlan}/{monthPlanCurrent}
+        </p>
         <Progress className="progress" done={monthDone} plan={monthPlan} />
       </main>
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>

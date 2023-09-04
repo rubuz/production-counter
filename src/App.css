@@ -25,7 +25,8 @@ h1 {
 }
 
 p {
-  font-size: 15rem;
+  font-size: 13rem;
+  padding-inline: 2rem;
   font-weight: var(--fw-bolder);
 }
 
@@ -43,7 +44,8 @@ img {
 }
 
 .done-number {
-  font-size: 15rem;
+  font-size: 13rem;
+  padding-inline: 2rem;
   font-weight: var(--fw-bolder);
 }
 
