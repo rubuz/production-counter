@@ -75,7 +75,7 @@ const Counter = ({ line, logo }) => {
       <main class="main">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
-            <img src={logo} alt="" onClick={toggleMenu} />
+            <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />
           </div>
           <h1 className="grid-item">REALIZIRANO</h1>
           <h1 className="grid-item">PLAN</h1>
