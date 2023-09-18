@@ -1,5 +1,5 @@
 import "./App.css";
-import Counter from "./counter";
+import Counter from "./Counter";
 import { Route, Routes } from "react-router-dom";
 import sonic from "./assets/sonic.png";
 import van from "./assets/van.png";
