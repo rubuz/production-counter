@@ -1,5 +1,6 @@
 import "./App.css";
 import "./counter.css";
+import "./sumCounter.css";
 import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";
@@ -10,79 +11,74 @@ const SumCounter = ({ logo }) => {
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchDataForAllLines = async () => {
-      try {
-        // Use Promise.all() to fetch data for all production lines concurrently
-        const responses = await Promise.all(
-          productionLineIds.map(async (lineId) => {
-            const response = await fetch(
-              `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${lineId}`,
-              {
-                headers: {
-                  Authorization:
-                    "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
-                },
-              }
-            );
-
-            if (!response.ok) {
-              throw new Error(`Failed to fetch data for line ${lineId}`);
+  const fetchDataForAllLines = async () => {
+    try {
+      // Use Promise.all() to fetch data for all production lines concurrently
+      const responses = await Promise.all(
+        productionLineIds.map(async (lineId) => {
+          const response = await fetch(
+            `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${lineId}`,
+            {
+              headers: {
+                Authorization:
+                  "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
+              },
             }
+          );
 
-            return response.json();
-          })
-        );
-
-        // Process the responses to calculate the total sum for each metric
-        const totalSum = {
-          dayPlan: 0,
-          dayPlanEnd: 0,
-          dayDone: 0,
-          monthPlan: 0,
-          monthPlanCurrent: 0,
-          monthDone: 0,
-        };
-
-        responses.forEach((responseData) => {
-          if (responseData.length > 0) {
-            totalSum.dayPlan += responseData[0].planirano || 0;
-            totalSum.dayPlanEnd +=
-              parseInt(responseData[0].planirano_konec_dneva) || 0;
-            totalSum.dayDone += responseData[0].proizvedeno || 0;
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data for line ${lineId}`);
           }
-          if (responseData.length > 1) {
-            totalSum.monthPlan += responseData[1].planirano || 0;
-            totalSum.monthPlanCurrent +=
-              parseInt(responseData[1].planirano_konec_dneva) || 0;
-            totalSum.monthDone += responseData[1].proizvedeno || 0;
-          }
-        });
 
-        // Update the total sum in the App component
+          return response.json();
+        })
+      );
 
-        // Store all line data if needed
-        setTotalData(totalSum);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+      // Process the responses to calculate the total sum for each metric
+      const totalSum = {
+        dayPlan: 0,
+        dayPlanEnd: 0,
+        dayDone: 0,
+        monthPlan: 0,
+        monthPlanCurrent: 0,
+        monthDone: 0,
+      };
 
+      responses.forEach((responseData) => {
+        if (responseData.length > 0) {
+          totalSum.dayPlan += responseData[0].planirano || 0;
+          totalSum.dayPlanEnd +=
+            parseInt(responseData[0].planirano_konec_dneva) || 0;
+          totalSum.dayDone += responseData[0].proizvedeno || 0;
+        }
+        if (responseData.length > 1) {
+          totalSum.monthPlan += responseData[1].planirano || 0;
+          totalSum.monthPlanCurrent +=
+            parseInt(responseData[1].planirano_konec_dneva) || 0;
+          totalSum.monthDone += responseData[1].proizvedeno || 0;
+        }
+      });
+
+      // Update the total sum in the App component
+
+      // Store all line data if needed
+      setTotalData(totalSum);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
     fetchDataForAllLines();
-    console.log(totalData);
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 600000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
-
-  // useEffect(() => {
-  //   fetchData();
-
-  //   const interval = setInterval(() => {
-  //     fetchData();
-  //   }, 600000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
 
   //number color changer
   const numberColor = (done, plan) => {
@@ -113,7 +109,7 @@ const SumCounter = ({ logo }) => {
       onClick={toggleMenu}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main class="main">
+      <main className="main">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
             <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />

@@ -74,7 +74,7 @@ const Counter = ({ line, logo }) => {
       onClick={toggleMenu}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main class="main">
+      <main className="main">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
             <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />
