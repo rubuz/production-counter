@@ -37,7 +37,7 @@ const Counter = ({ line, logo }) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 600000);
+    }, 780000);
 
     return () => {
       clearInterval(interval);
@@ -68,13 +68,20 @@ const Counter = ({ line, logo }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleMenuIfOpen = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(!isMenuOpen);
+    }
+    return;
+  };
+
   return (
     <div
       className={`app ${isMenuOpen ? "menu-open" : ""}`}
-      onClick={toggleMenu}
+      onClick={toggleMenuIfOpen}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main class="main">
+      <main className="main">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
             <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />

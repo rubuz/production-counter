@@ -34,6 +34,11 @@ const SideMenu = () => {
             <span>65300 </span>Active Bič
           </a>
         </li>
+        <li>
+          <a href="/sum">
+            <span>SUMA </span>Vse linije
+          </a>
+        </li>
       </ul>
     </>
   );

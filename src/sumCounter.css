@@ -1,0 +1,9 @@
+.main-sum p {
+  font-size: 10rem;
+}
+
+.done-number-sum {
+  font-size: 10rem;
+  padding-inline: 2rem;
+  font-weight: var(--fw-bolder);
+}
