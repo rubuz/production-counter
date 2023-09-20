@@ -36,7 +36,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a href="/sum">
-            <span>SUMA </span>
+            <span>SUMA </span>Vse linije
           </a>
         </li>
       </ul>

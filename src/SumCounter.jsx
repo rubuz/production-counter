@@ -72,8 +72,9 @@ const SumCounter = ({ logo }) => {
     fetchDataForAllLines();
 
     const interval = setInterval(() => {
-      fetchData();
-    }, 600000);
+      fetchDataForAllLines();
+      console.log("ena");
+    }, 780000);
 
     return () => {
       clearInterval(interval);
@@ -96,6 +97,13 @@ const SumCounter = ({ logo }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleMenuIfOpen = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(!isMenuOpen);
+    }
+    return;
+  };
+
   const dayPlan = totalData.dayPlan || 0;
   const dayPlanEnd = totalData.dayPlanEnd || 0;
   const dayDone = totalData.dayDone || 0;
@@ -106,10 +114,10 @@ const SumCounter = ({ logo }) => {
   return (
     <div
       className={`app ${isMenuOpen ? "menu-open" : ""}`}
-      onClick={toggleMenu}
+      onClick={toggleMenuIfOpen}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main className="main">
+      <main className="main main-sum">
         <div className="header-wrapper grid-item">
           <div className="img-container grid-item header-item-first">
             <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />
@@ -121,7 +129,7 @@ const SumCounter = ({ logo }) => {
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
           <div
-            className="grid-item done-number"
+            className="grid-item done-number-sum"
             style={{ color: numberColor(dayDone, dayPlan) }}
           >
             <AnimateNumber value={dayDone} />
@@ -133,7 +141,7 @@ const SumCounter = ({ logo }) => {
         </div>
         <h2 className="grid-item">MESEC</h2>
         <div
-          className="grid-item done-number"
+          className="grid-item done-number-sum"
           style={{ color: numberColor(monthDone, monthPlan) }}
         >
           <AnimateNumber value={monthDone} />
