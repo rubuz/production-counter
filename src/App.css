@@ -9,8 +9,8 @@ main {
   grid-template-columns: 150px repeat(2, 1fr) 20%;
   grid-template-rows: 200px auto auto;
   background-color: var(--clr-neutral-100);
-  min-height: 98vh;
-  min-width: 99vw;
+  min-height: 100dvh;
+  min-width: 100dvw;
   border-radius: 50px;
   /* border-bottom: solid 2px var(--clr-primary); */
   justify-items: center;

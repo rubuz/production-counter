@@ -16,7 +16,7 @@
   --clr-accent: #d20000;
   --clr-neutral-100: #fdfdfd;
   --clr-neutral-700: #f5f5f5;
-  --clr-neutral-800: #aaaaaa;
+  --clr-neutral-800: black;
   --clr-neutral-900: #5a5a5a;
   --clr-text: #000;
   --clr-bg: #fdfdfd;
@@ -101,7 +101,7 @@ h6 {
   --clr-accent: #d20000;
   --clr-neutral-100: #14151a;
   --clr-neutral-700: #8b8b8b;
-  --clr-neutral-800: #3f3f3f;
+  --clr-neutral-800: black;
   --clr-neutral-900: #8c8d90;
   --clr-text: white;
   --clr-bg: #fdfdfd;
