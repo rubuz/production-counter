@@ -95,3 +95,19 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.dark-theme {
+  --clr-primary: #284170;
+  --clr-accent: #d20000;
+  --clr-neutral-100: #14151a;
+  --clr-neutral-700: #8b8b8b;
+  --clr-neutral-800: #3f3f3f;
+  --clr-neutral-900: #8c8d90;
+  --clr-text: white;
+  --clr-bg: #fdfdfd;
+  --clr-container: #f6eef4;
+}
+
+.dark-theme p {
+  color: var(--clr-bg);
+}

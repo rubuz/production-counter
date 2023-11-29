@@ -45,4 +45,5 @@
   font-weight: bold;
   margin-right: 1rem;
   z-index: 10;
+  color: var(--clr-text);
 }

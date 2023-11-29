@@ -59,7 +59,7 @@ const Counter = ({ line, logo }) => {
     } else if (plan > done) {
       return "#d20000";
     } else {
-      return "#000";
+      return "var(--clr-text)";
     }
   };
 
