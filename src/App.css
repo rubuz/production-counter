@@ -6,7 +6,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 150px repeat(2, 1fr) 20%;
+  grid-template-columns: 150px repeat(2, 1fr); /* add 20% at the end for progress bar*/
   grid-template-rows: 200px auto auto;
   background-color: var(--clr-neutral-100);
   min-height: 100dvh;

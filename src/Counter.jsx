@@ -87,8 +87,8 @@ const Counter = ({ line, logo }) => {
             <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />
           </div>
           <h1 className="grid-item">REALIZIRANO</h1>
-          <h1 className="grid-item">PLAN</h1>
-          <h1 className="grid-item header-item-last">%</h1>
+          <h1 className="grid-item header-item-last">PLAN</h1>
+          {/* <h1 className="grid-item header-item-last">%</h1> */}
         </div>
         <div className="second-wrapper">
           <h2 className="grid-item second-wrapper-first">DAN</h2>
@@ -101,7 +101,7 @@ const Counter = ({ line, logo }) => {
           <p className="grid-item">
             {dayPlan}/{dayPlanEnd}
           </p>
-          <Progress className="progress" done={dayDone} plan={dayPlan} />
+          {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}
         </div>
         <h2 className="grid-item">MESEC</h2>
         <div
@@ -113,7 +113,7 @@ const Counter = ({ line, logo }) => {
         <p className="grid-item">
           {monthPlan}/{monthPlanCurrent}
         </p>
-        <Progress className="progress" done={monthDone} plan={monthPlan} />
+        {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
       </main>
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
         <SideMenu />
