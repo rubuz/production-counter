@@ -1,6 +1,4 @@
 import "./sidemenu.css";
-import Sun from "./assets/sun.svg";
-import Moon from "./assets/moon.svg";
 import { useEffect, useState } from "react";
 
 const getStorageTheme = () => {
