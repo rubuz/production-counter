@@ -134,7 +134,7 @@ const SumCounter = ({ logo }) => {
           >
             <AnimateNumber value={dayDone} />
           </div>
-          <p className="grid-item">
+          <p className="grid-item second-wrapper-second">
             {dayPlan}/{dayPlanEnd}
           </p>
           {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}

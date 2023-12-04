@@ -25,14 +25,14 @@ h1 {
 }
 
 p {
-  font-size: 12rem;
+  font-size: 14rem;
   padding-inline: 2rem;
   font-weight: var(--fw-bolder);
 }
 
 h2 {
   writing-mode: vertical-lr;
-  font-size: 2.5rem;
+  font-size: 3.6rem;
   font-weight: var(--fw-bolder);
   text-orientation: upright;
   color: var(--clr-neutral-900);
@@ -44,7 +44,7 @@ img {
 }
 
 .done-number {
-  font-size: 12rem;
+  font-size: 15rem;
   padding-inline: 2rem;
   font-weight: var(--fw-bolder);
 }
@@ -64,7 +64,7 @@ img {
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 4rem;
+  font-size: 5.5rem;
   font-weight: var(--fw-bolder);
 }
 
@@ -93,6 +93,10 @@ img {
 
 .second-wrapper-first {
   border-radius: 0 0 0 50px;
+}
+
+.second-wrapper-second {
+  border-radius: 0 0 50px 0;
 }
 
 .app-container {
