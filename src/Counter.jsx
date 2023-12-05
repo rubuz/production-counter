@@ -4,6 +4,7 @@ import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";
 import SideMenu from "./SideMenu";
+import { useIdle } from "react-use";
 
 const Counter = ({ line, logo }) => {
   const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
@@ -11,6 +12,7 @@ const Counter = ({ line, logo }) => {
     "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh";
   const [data, setData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isIdle = useIdle(5000);
 
   const fetchData = () => {
     fetch(url, {
@@ -74,6 +76,29 @@ const Counter = ({ line, logo }) => {
     }
     return;
   };
+
+  // Hide cursor and prevent PC to go to sleep
+  useEffect(() => {
+    if (isIdle) {
+      document.body.style.cursor = "none";
+    } else if (!isIdle) {
+      document.body.style.cursor = "default";
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        if (navigator && navigator.requestWakeLock) {
+          navigator.requestWakeLock("screen");
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isIdle]);
 
   return (
     <div
