@@ -39,7 +39,7 @@ const Counter = ({ line, logo }) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 780000);
+    }, 600000);
 
     return () => {
       clearInterval(interval);
@@ -87,16 +87,17 @@ const Counter = ({ line, logo }) => {
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
-        if (navigator && navigator.requestWakeLock) {
-          navigator.requestWakeLock("screen");
+        if ("wakeLock" in navigator) {
+          navigator.wakeLock.request("screen");
+          console.log("screen lock active");
         }
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange());
 
     return () => {
-      document.addEventListener("visibilitychange", handleVisibilityChange);
+      document.addEventListener("visibilitychange", handleVisibilityChange());
     };
   }, [isIdle]);
 

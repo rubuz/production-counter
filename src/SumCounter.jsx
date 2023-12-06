@@ -73,7 +73,6 @@ const SumCounter = ({ logo }) => {
 
     const interval = setInterval(() => {
       fetchDataForAllLines();
-      console.log("ena");
     }, 780000);
 
     return () => {
