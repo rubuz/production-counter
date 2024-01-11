@@ -63,6 +63,11 @@ const SideMenu = () => {
             <span>SUMA </span>Vse linije
           </a>
         </li>
+        <li>
+          <a href="/graphs">
+            <span>GRAFI </span>Grafični prikaz
+          </a>
+        </li>
         <li onClick={toogleTheme}>
           <div className="theme-btn">
             {theme === "light-theme" ? (

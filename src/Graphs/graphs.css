@@ -1,0 +1,11 @@
+.main__graphs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--clr-neutral-100);
+  min-height: 100dvh;
+  min-width: 100dvw;
+  border-radius: 50px;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+}
