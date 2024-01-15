@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import GraphDaily from "./GraphDaily";
 import GraphMonthly from "./GraphMonthly";
+import SideMenu from "../SideMenu";
 import "./graphs.css";
+import GraphInfo from "./GraphInfo";
 
-const Graphs = () => {
+const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [month, setMonth] = useState(true);
 
   const fetchDataForAllLines = async () => {
     try {
@@ -55,77 +58,130 @@ const Graphs = () => {
     };
   }, []);
 
-  const percentDay62100 =
-    Object.keys(totalData).length > 0
-      ? Math.round(totalData[62100][0].procent) || 0
+  const getPercentDay = (lineId) => {
+    return Object.keys(totalData).length > 0
+      ? Math.round(totalData[lineId][0].procent) || 0
       : 0;
-  const percentDay62200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[62200][0].procent) || 0
-      : 0;
-  const percentDay63000 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[63000][0].procent) || 0
-      : 0;
-  const percentDay63200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[63200][0].procent) || 0
-      : 0;
-  const percentDay65200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[65200][0].procent) || 0
-      : 0;
-  const percentDay65300 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[65300][0].procent) || 0
-      : 0;
+  };
 
-  const percentMonth62100 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[62100][1].procent) || 0
-      : 0;
-  const percentMonth62200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[62200][1].procent) || 0
-      : 0;
-  const percentMonth63000 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[63000][1].procent) || 0
-      : 0;
-  const percentMonth63200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[63200][1].procent) || 0
-      : 0;
-  const percentMonth65200 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[65200][1].procent) || 0
-      : 0;
-  const percentMonth65300 =
-    Object.keys(totalData).length > 0 > 0
-      ? Math.round(totalData[65300][1].procent) || 0
-      : 0;
+  const percentDay62100 = getPercentDay(62100);
+  const percentDay62200 = getPercentDay(62200);
+  const percentDay63000 = getPercentDay(63000);
+  const percentDay63200 = getPercentDay(63200);
+  const percentDay65200 = getPercentDay(65200);
+  const percentDay65300 = getPercentDay(65300);
 
-  console.log(percentDay62100);
-  console.log(totalData);
+  const getPercentMonth = (lineId) => {
+    if (Object.keys(totalData).length > 0) {
+      const percentMonth = Math.round(
+        (totalData[lineId][1].planirano /
+          Number(totalData[lineId][1].planirano_konec_dneva)) *
+          100
+      );
+      return isNaN(percentMonth) ? 0 : percentMonth;
+    }
+    return 0;
+  };
+
+  const percentMonth62100 = getPercentMonth(62100);
+  const percentMonth62200 = getPercentMonth(62200);
+  const percentMonth63000 = getPercentMonth(63000);
+  const percentMonth63200 = getPercentMonth(63200);
+  const percentMonth65200 = getPercentMonth(65200);
+  const percentMonth65300 = getPercentMonth(65300);
+
+  // console.log(percentMonth62200);
+
+  // console.log(totalData);
+
+  // icon click
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleMenuIfOpen = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(!isMenuOpen);
+    }
+    return;
+  };
+
+  // toggle day/month
+  const toggleDay = () => {
+    if (month) {
+      setMonth(false);
+    }
+  };
+
+  const toggleMonth = () => {
+    setMonth(true);
+  };
 
   return (
-    <div className="main__graphs">
-      <GraphDaily
-        line62100={percentDay62100}
-        line62200={percentDay62200}
-        line63000={percentDay63000}
-        line63200={percentDay63200}
-        line65200={percentDay65200}
-        line65300={percentDay65300}
-      />
-      <GraphMonthly
+    <div
+      className={`app ${isMenuOpen ? "menu-open" : ""}`}
+      onClick={toggleMenuIfOpen}
+    >
+      <div className="main__graphs">
+        <div className="graph__header">
+          <div className="img-container">
+            <img
+              src={logo}
+              alt=""
+              onClick={toggleMenu}
+              className="graph__img"
+            />
+          </div>
+          <h1 className="header__text">GRAF</h1>
+
+          {/* <h1 className="grid-item header-item-last">%</h1> */}
+        </div>
+        <div className="graph__container">
+          <div className="graph__info">
+            <div className="time__selector">
+              <div
+                onClick={toggleDay}
+                className={month ? "btn-unactive" : "btn-active"}
+              >
+                <h3>Dan</h3>
+              </div>
+              <div
+                onClick={toggleMonth}
+                className={month ? "btn-active" : "btn-unactive"}
+              >
+                <h3>Mesec</h3>
+              </div>
+            </div>
+            <GraphInfo
+              line62100={month ? percentMonth62100 : percentDay62100}
+              line62200={month ? percentMonth62200 : percentDay62200}
+              line63000={month ? percentMonth63000 : percentDay63000}
+              line63200={month ? percentMonth63200 : percentDay63200}
+              line65200={month ? percentMonth65200 : percentDay65200}
+              line65300={month ? percentMonth65300 : percentDay65300}
+            />
+          </div>
+          <GraphDaily
+            line62100={month ? percentMonth62100 : percentDay62100}
+            line62200={month ? percentMonth62200 : percentDay62200}
+            line63000={month ? percentMonth63000 : percentDay63000}
+            line63200={month ? percentMonth63200 : percentDay63200}
+            line65200={month ? percentMonth65200 : percentDay65200}
+            line65300={month ? percentMonth65300 : percentDay65300}
+          />
+          {/* <GraphMonthly
         line62100={percentMonth62100}
         line62200={percentMonth62200}
         line63000={percentMonth63000}
         line63200={percentMonth63200}
         line65200={percentMonth65200}
         line65300={percentMonth65300}
-      />
+      /> */}
+        </div>
+      </div>
+      <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+        <SideMenu />
+      </div>
     </div>
   );
 };
