@@ -9,7 +9,7 @@ const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [month, setMonth] = useState(true);
+  const [month, setMonth] = useState(false);
 
   const fetchDataForAllLines = async () => {
     try {

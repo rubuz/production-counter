@@ -65,7 +65,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a href="/graphs">
-            <span>GRAFI </span>Grafični prikaz
+            <span>GRAFI </span>Graf
           </a>
         </li>
         <li onClick={toogleTheme}>
