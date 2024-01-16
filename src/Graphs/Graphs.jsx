@@ -21,7 +21,7 @@ const Graphs = ({ logo }) => {
 
   const color62100under = "#FFAB80";
   const color62200under = "#FFDE80";
-  const color63000under = "#ECFFB3";
+  const color63000under = "#d7e8a2";
   const color63200under = "#E6808A";
   const color65200under = "#C6808A";
   const color65300under = "#8A668A";
@@ -221,6 +221,7 @@ const Graphs = ({ logo }) => {
           <div className="graph__box">
             <div className="graph__under">
               <GraphDaily
+                graphData={totalData}
                 line62100={
                   month ? percentMonth62100Planned : percentDay62100Planned
                 }
@@ -255,6 +256,7 @@ const Graphs = ({ logo }) => {
             </div>
             <div className="graph__over">
               <GraphDaily
+                graphData={totalData}
                 line62100={month ? percentMonth62100 : percentDay62100}
                 line62100bg={"transparent"}
                 line62100path={color62100}
@@ -276,15 +278,6 @@ const Graphs = ({ logo }) => {
               />
             </div>
           </div>
-
-          {/* <GraphMonthly
-        line62100={percentMonth62100}
-        line62200={percentMonth62200}
-        line63000={percentMonth63000}
-        line63200={percentMonth63200}
-        line65200={percentMonth65200}
-        line65300={percentMonth65300}
-      /> */}
         </div>
       </div>
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>

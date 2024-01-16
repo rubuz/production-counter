@@ -77,7 +77,3 @@ const GraphDaily = (props) => {
 };
 
 export default GraphDaily;
-
-{
-  /*  */
-}
