@@ -14,7 +14,7 @@ const Graphs = ({ logo }) => {
   // Colors for graphs
   const color62100 = "#FF5733";
   const color62200 = "#FFC300";
-  const color63000 = "#DAF7A6";
+  const color63000 = "#abc480";
   const color63200 = "#C70039";
   const color65200 = "#900C3F";
   const color65300 = "#581845";
@@ -224,32 +224,32 @@ const Graphs = ({ logo }) => {
                 line62100={
                   month ? percentMonth62100Planned : percentDay62100Planned
                 }
-                line62100bg={"#eee"}
+                line62100bg={"#f0f0f0"}
                 line62100path={color62100under}
                 line62200={
                   month ? percentMonth62200Planned : percentDay62200Planned
                 }
-                line62200bg={"#eee"}
+                line62200bg={"#f0f0f0"}
                 line62200path={color62200under}
                 line63000={
                   month ? percentMonth63000Planned : percentDay63000Planned
                 }
-                line63000bg={"#eee"}
+                line63000bg={"#f0f0f0"}
                 line63000path={color63000under}
                 line63200={
                   month ? percentMonth63200Planned : percentDay63200Planned
                 }
-                line63200bg={"#eee"}
+                line63200bg={"#f0f0f0"}
                 line63200path={color63200under}
                 line65200={
                   month ? percentMonth65200Planned : percentDay65200Planned
                 }
-                line65200bg={"#eee"}
+                line65200bg={"#f0f0f0"}
                 line65200path={color65200under}
                 line65300={
                   month ? percentMonth65300Planned : percentDay65300Planned
                 }
-                line65300bg={"#eee"}
+                line65300bg={"#f0f0f0"}
                 line65300path={color65300under}
               />
             </div>
