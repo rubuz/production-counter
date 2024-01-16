@@ -11,6 +11,21 @@ const Graphs = ({ logo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [month, setMonth] = useState(false);
 
+  // Colors for graphs
+  const color62100 = "#FF5733";
+  const color62200 = "#FFC300";
+  const color63000 = "#DAF7A6";
+  const color63200 = "#C70039";
+  const color65200 = "#900C3F";
+  const color65300 = "#581845";
+
+  const color62100under = "#FFAB80";
+  const color62200under = "#FFDE80";
+  const color63000under = "#ECFFB3";
+  const color63200under = "#E6808A";
+  const color65200under = "#C6808A";
+  const color65300under = "#8A668A";
+
   const fetchDataForAllLines = async () => {
     try {
       // Use Promise.all() to fetch data for all production lines concurrently
@@ -58,6 +73,7 @@ const Graphs = ({ logo }) => {
     };
   }, []);
 
+  // Percent day - proizvedeno
   const getPercentDay = (lineId) => {
     return Object.keys(totalData).length > 0
       ? Math.round(totalData[lineId][0].procent) || 0
@@ -71,10 +87,31 @@ const Graphs = ({ logo }) => {
   const percentDay65200 = getPercentDay(65200);
   const percentDay65300 = getPercentDay(65300);
 
+  // Percent day - planirano
+  const getPercentDayPlanned = (lineId) => {
+    if (Object.keys(totalData).length > 0) {
+      const percentMonth = Math.round(
+        (totalData[lineId][0].planirano /
+          Number(totalData[lineId][0].planirano_konec_dneva)) *
+          100
+      );
+      return isNaN(percentMonth) ? 0 : percentMonth;
+    }
+    return 0;
+  };
+
+  const percentDay62100Planned = getPercentDayPlanned(62100);
+  const percentDay62200Planned = getPercentDayPlanned(62200);
+  const percentDay63000Planned = getPercentDayPlanned(63000);
+  const percentDay63200Planned = getPercentDayPlanned(63200);
+  const percentDay65200Planned = getPercentDayPlanned(65200);
+  const percentDay65300Planned = getPercentDayPlanned(65300);
+
+  // Percent month - proizvedeno
   const getPercentMonth = (lineId) => {
     if (Object.keys(totalData).length > 0) {
       const percentMonth = Math.round(
-        (totalData[lineId][1].planirano /
+        (totalData[lineId][1].proizvedeno /
           Number(totalData[lineId][1].planirano_konec_dneva)) *
           100
       );
@@ -90,7 +127,27 @@ const Graphs = ({ logo }) => {
   const percentMonth65200 = getPercentMonth(65200);
   const percentMonth65300 = getPercentMonth(65300);
 
-  // console.log(percentMonth62200);
+  // Percent month - planirano
+  const getPercentMonthPlanned = (lineId) => {
+    if (Object.keys(totalData).length > 0) {
+      const percentMonth = Math.round(
+        (totalData[lineId][1].planirano /
+          Number(totalData[lineId][1].planirano_konec_dneva)) *
+          100
+      );
+      return isNaN(percentMonth) ? 0 : percentMonth;
+    }
+    return 0;
+  };
+
+  const percentMonth62100Planned = getPercentMonthPlanned(62100);
+  const percentMonth62200Planned = getPercentMonthPlanned(62200);
+  const percentMonth63000Planned = getPercentMonthPlanned(63000);
+  const percentMonth63200Planned = getPercentMonthPlanned(63200);
+  const percentMonth65200Planned = getPercentMonthPlanned(65200);
+  const percentMonth65300Planned = getPercentMonthPlanned(65300);
+
+  // console.log(percentMonth62100);
 
   // console.log(totalData);
 
@@ -161,14 +218,65 @@ const Graphs = ({ logo }) => {
               line65300={month ? percentMonth65300 : percentDay65300}
             />
           </div>
-          <GraphDaily
-            line62100={month ? percentMonth62100 : percentDay62100}
-            line62200={month ? percentMonth62200 : percentDay62200}
-            line63000={month ? percentMonth63000 : percentDay63000}
-            line63200={month ? percentMonth63200 : percentDay63200}
-            line65200={month ? percentMonth65200 : percentDay65200}
-            line65300={month ? percentMonth65300 : percentDay65300}
-          />
+          <div className="graph__box">
+            <div className="graph__under">
+              <GraphDaily
+                line62100={
+                  month ? percentMonth62100Planned : percentDay62100Planned
+                }
+                line62100bg={"#eee"}
+                line62100path={color62100under}
+                line62200={
+                  month ? percentMonth62200Planned : percentDay62200Planned
+                }
+                line62200bg={"#eee"}
+                line62200path={color62200under}
+                line63000={
+                  month ? percentMonth63000Planned : percentDay63000Planned
+                }
+                line63000bg={"#eee"}
+                line63000path={color63000under}
+                line63200={
+                  month ? percentMonth63200Planned : percentDay63200Planned
+                }
+                line63200bg={"#eee"}
+                line63200path={color63200under}
+                line65200={
+                  month ? percentMonth65200Planned : percentDay65200Planned
+                }
+                line65200bg={"#eee"}
+                line65200path={color65200under}
+                line65300={
+                  month ? percentMonth65300Planned : percentDay65300Planned
+                }
+                line65300bg={"#eee"}
+                line65300path={color65300under}
+              />
+            </div>
+            <div className="graph__over">
+              <GraphDaily
+                line62100={month ? percentMonth62100 : percentDay62100}
+                line62100bg={"transparent"}
+                line62100path={color62100}
+                line62200={month ? percentMonth62200 : percentDay62200}
+                line62200bg={"transparent"}
+                line62200path={color62200}
+                line63000={month ? percentMonth63000 : percentDay63000}
+                line63000bg={"transparent"}
+                line63000path={color63000}
+                line63200={month ? percentMonth63200 : percentDay63200}
+                line63200bg={"transparent"}
+                line63200path={color63200}
+                line65200={month ? percentMonth65200 : percentDay65200}
+                line65200bg={"transparent"}
+                line65200path={color65200}
+                line65300={month ? percentMonth65300 : percentDay65300}
+                line65300bg={"transparent"}
+                line65300path={color65300}
+              />
+            </div>
+          </div>
+
           {/* <GraphMonthly
         line62100={percentMonth62100}
         line62200={percentMonth62200}

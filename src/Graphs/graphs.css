@@ -81,3 +81,25 @@
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
+
+.graph__box {
+  position: relative;
+  width: 100%;
+}
+
+.graph__under {
+  width: 100%;
+  z-index: 5;
+}
+
+.graph__over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.barve {
+  background-color: #de8787;
+}
