@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import GraphDaily from "./GraphDaily";
-import GraphMonthly from "./GraphMonthly";
+// import GraphMonthly from "./GraphMonthly";
 import SideMenu from "../SideMenu";
 import "./graphs.css";
 import GraphInfo from "./GraphInfo";
 import LiveDateTime from "./LiveTime";
+import PropTypes from "prop-types";
 
 const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
@@ -40,7 +41,7 @@ const Graphs = ({ logo }) => {
                 Authorization:
                   "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
               },
-            }
+            },
           );
 
           if (!response.ok) {
@@ -49,7 +50,7 @@ const Graphs = ({ logo }) => {
 
           const data = await response.json();
           return { lineId, data };
-        })
+        }),
       );
 
       const allData = responses.reduce((acc, { lineId, data }) => {
@@ -95,7 +96,7 @@ const Graphs = ({ logo }) => {
       const percentMonth = Math.round(
         (totalData[lineId][0].planirano /
           Number(totalData[lineId][0].planirano_konec_dneva)) *
-          100
+          100,
       );
       return isNaN(percentMonth) ? 0 : percentMonth;
     }
@@ -115,7 +116,7 @@ const Graphs = ({ logo }) => {
       const percentMonth = Math.round(
         (totalData[lineId][1].proizvedeno /
           Number(totalData[lineId][1].planirano_konec_dneva)) *
-          100
+          100,
       );
       return isNaN(percentMonth) ? 0 : percentMonth;
     }
@@ -135,7 +136,7 @@ const Graphs = ({ logo }) => {
       const percentMonth = Math.round(
         (totalData[lineId][1].planirano /
           Number(totalData[lineId][1].planirano_konec_dneva)) *
-          100
+          100,
       );
       return isNaN(percentMonth) ? 0 : percentMonth;
     }
@@ -181,22 +182,24 @@ const Graphs = ({ logo }) => {
       className={`app ${isMenuOpen ? "menu-open" : ""}`}
       onClick={toggleMenuIfOpen}
     >
-      <div className="main__graphs">
-        <div className="graph__header">
-          <div className="img-container">
+      <div className="main__graphs bg-amNeutral100 grid min-h-[100dvh] min-w-[100dvw] grid-cols-1 grid-rows-[200px_1fr] items-center justify-center overflow-hidden rounded-[50px]">
+        <div className="grid h-[200px] w-full grid-cols-[150px_1fr_230px]">
+          <div className="group flex cursor-pointer items-center justify-center rounded-bl-[50px] transition-all duration-300 ease-in">
             <img
               src={logo}
               alt=""
               onClick={toggleMenu}
-              className="graph__img"
+              className="group-hover:filter-iconHover w-[70%] transition-all duration-200 ease-in group-hover:scale-110"
             />
           </div>
-          <h1 className="header__text">GRAF</h1>
+          <h1 className="place-self-center self-center text-[5.5rem] font-extrabold text-black">
+            GRAF
+          </h1>
           <LiveDateTime />
         </div>
-        <div className="graph__container">
-          <div className="graph__info">
-            <div className="time__selector">
+        <div className="grid h-full w-full grid-cols-2 grid-rows-1 items-center justify-center">
+          <div className="h-full w-full p-8">
+            <div className="flex cursor-pointer justify-around py-4 text-5xl">
               <div
                 onClick={toggleDay}
                 className={month ? "btn-unactive" : "btn-active"}
@@ -220,8 +223,8 @@ const Graphs = ({ logo }) => {
               graphData={totalData}
             />
           </div>
-          <div className="graph__box">
-            <div className="graph__under">
+          <div className="relative w-full">
+            <div className="z-[5] w-full">
               <GraphDaily
                 graphData={totalData}
                 line62100={
@@ -256,7 +259,7 @@ const Graphs = ({ logo }) => {
                 line65300path={color65300under}
               />
             </div>
-            <div className="graph__over">
+            <div className="absolute left-0 top-0 z-[1] w-full">
               <GraphDaily
                 graphData={totalData}
                 line62100={month ? percentMonth62100 : percentDay62100}
@@ -282,11 +285,17 @@ const Graphs = ({ logo }) => {
           </div>
         </div>
       </div>
-      <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+      <div
+        className={`side-menu fixed left-0 top-0 h-auto  bg-white ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} z-50 rounded-br-[2rem] transition-all duration-200 ease-in-out`}
+      >
         <SideMenu />
       </div>
     </div>
   );
+};
+
+Graphs.propTypes = {
+  logo: PropTypes.string.isRequired,
 };
 
 export default Graphs;

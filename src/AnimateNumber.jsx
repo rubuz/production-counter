@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "./animateNumber.css";
 
 const AnimateNumber = ({ value }) => {
@@ -17,6 +18,10 @@ const AnimateNumber = ({ value }) => {
       {value}
     </div>
   );
+};
+
+AnimateNumber.propTypes = {
+  value: PropTypes.number.isRequired,
 };
 
 export default AnimateNumber;

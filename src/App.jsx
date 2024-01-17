@@ -12,7 +12,7 @@ import Graphs from "./Graphs/Graphs";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="relative overflow-x-hidden">
       <Routes>
         <Route path="/*" element={<Counter line={62100} logo={caravan} />} />
         <Route

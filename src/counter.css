@@ -15,16 +15,16 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 888;
+  z-index: 40;
 }
 
 .main {
   transition: filter 0.3s;
 }
 
-.img-container {
+/* .img-container {
   cursor: pointer;
-}
+} */
 
 /* .img-container:hover {
   border-radius: 0rem;
@@ -32,16 +32,16 @@
   transition: 0.3s ease;
 } */
 
-.img-container:hover img {
+/* .img-container:hover img {
   transform: scale(1.1);
   transition: 0.3s ease;
   filter: invert(62%) sepia(76%) saturate(1815%) hue-rotate(0deg)
     brightness(105%) contrast(105%);
-  /* filter: invert(10%) sepia(84%) saturate(6467%) hue-rotate(2deg)
-    brightness(95%) contrast(113%); */
-}
+  filter: invert(10%) sepia(84%) saturate(6467%) hue-rotate(2deg)
+    brightness(95%) contrast(113%);
+} */
 
-.side-menu {
+/* .side-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -51,8 +51,8 @@
   transition: transform 0.2s ease-in-out;
   z-index: 999;
   border-radius: 0 0 2rem 0;
-}
+} */
 
-.side-menu.open {
+/* .side-menu.open {
   transform: translateX(0);
-}
+} */

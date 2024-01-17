@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./progress.css";
 
 const Progress = (props) => {
@@ -25,10 +26,10 @@ const Progress = (props) => {
   };
 
   return (
-    <div className="progress-container">
-      <div className="progress-bar">
+    <div className="border-[rgba(90, 90, 90, 0.2)] flex h-full w-full justify-center rounded-br-[50px] border-b-2 align-middle">
+      <div className=" bg-amNeutral700 border-[rgba(90, 90, 90, 0.1)] relative flex h-[100px] w-[90%] justify-end overflow-hidden rounded-full border-[1px] align-middle shadow">
         <div
-          className="progress-bar-fill"
+          className="absolute left-0 top-0 flex h-full w-full translate-x-[75%] items-center justify-end rounded-full bg-[#2ecc71] text-[2rem] font-bold transition-all duration-500 ease-in-out"
           style={
             procentageCalc(props.done, props.plan) > 100
               ? { transform: "translateX(0)", backgroundColor: "#2ecc71" }
@@ -38,7 +39,7 @@ const Progress = (props) => {
                 }
           }
         ></div>
-        <span className="progress-procentage">
+        <span className="text-amText z-10 mr-4 text-5xl font-bold">
           {isNaN(procentageCalc(props.done, props.plan))
             ? 0
             : procentageCalc(props.done, props.plan)}
@@ -46,6 +47,11 @@ const Progress = (props) => {
       </div>
     </div>
   );
+};
+
+Progress.PropTypes = {
+  done: PropTypes.number.isRequired,
+  plan: PropTypes.number.isRequired,
 };
 
 export default Progress;

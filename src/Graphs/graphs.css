@@ -1,4 +1,4 @@
-.main__graphs {
+/* .main__graphs {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 200px 1fr;
@@ -9,36 +9,29 @@
   justify-items: center;
   align-items: center;
   overflow: hidden;
-}
+} */
 
-.graph__header {
+/* .graph__header {
   display: grid;
   grid-template-columns: 150px 1fr 230px;
   width: 100%;
   height: 200px;
-}
-
-.live-time {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
+} */
+/* 
 .graph__img {
   width: 70%;
   object-fit: contain;
-}
-
+} */
+/* 
 .header__text {
   color: black;
   font-size: 5.5rem;
   font-weight: var(--fw-bolder);
   align-self: center;
   justify-self: center;
-}
+} */
 
-.graph__container {
+/* .graph__container {
   width: 100%;
   height: 100%;
   display: grid;
@@ -46,23 +39,23 @@
   grid-template-rows: 100%;
   justify-items: center;
   align-items: center;
-}
+} */
 
-.graph__info {
+/* .graph__info {
   width: 100%;
   height: 100%;
   padding: 2rem;
-}
+} */
 
-.time__selector {
+/* .time__selector {
   font-size: 3rem;
   display: flex;
   justify-content: space-around;
   padding-block: 1rem;
   cursor: pointer;
-}
+} */
 
-.btn-active {
+/* .btn-active {
   width: 30%;
   height: 80px;
   display: flex;
@@ -72,9 +65,9 @@
   color: white;
   padding-inline: 2rem;
   border-radius: 999px;
-}
+} */
 
-.btn-unactive {
+/* .btn-unactive {
   width: 30%;
   height: 80px;
   display: flex;
@@ -87,25 +80,25 @@
   color: black;
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
-}
+} */
 
-.graph__box {
+/* .graph__box {
   position: relative;
   width: 100%;
-}
+} */
 
-.graph__under {
+/* .graph__under {
   width: 100%;
   z-index: 5;
-}
+} */
 
-.graph__over {
+/* .graph__over {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1;
-}
+} */
 
 .test {
   position: absolute;
