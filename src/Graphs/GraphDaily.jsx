@@ -63,6 +63,11 @@ const GraphDaily = (props) => {
                             })}
                           />
                         </div>
+                        <div className="test">
+                          <div>Realizirano: 23</div>
+                          <div>Plan trenutni: 177</div>
+                          <div>Plan končni: 454</div>
+                        </div>
                       </CircularProgressbarWithChildren>
                     </div>
                   </CircularProgressbarWithChildren>

@@ -4,6 +4,7 @@ import GraphMonthly from "./GraphMonthly";
 import SideMenu from "../SideMenu";
 import "./graphs.css";
 import GraphInfo from "./GraphInfo";
+import LiveDateTime from "./LiveTime";
 
 const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
@@ -26,6 +27,7 @@ const Graphs = ({ logo }) => {
   const color65200under = "#C6808A";
   const color65300under = "#8A668A";
 
+  // API call
   const fetchDataForAllLines = async () => {
     try {
       // Use Promise.all() to fetch data for all production lines concurrently
@@ -190,8 +192,7 @@ const Graphs = ({ logo }) => {
             />
           </div>
           <h1 className="header__text">GRAF</h1>
-
-          {/* <h1 className="grid-item header-item-last">%</h1> */}
+          <LiveDateTime />
         </div>
         <div className="graph__container">
           <div className="graph__info">
@@ -216,6 +217,7 @@ const Graphs = ({ logo }) => {
               line63200={month ? percentMonth63200 : percentDay63200}
               line65200={month ? percentMonth65200 : percentDay65200}
               line65300={month ? percentMonth65300 : percentDay65300}
+              graphData={totalData}
             />
           </div>
           <div className="graph__box">
