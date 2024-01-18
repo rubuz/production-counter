@@ -12,6 +12,7 @@ const Graphs = ({ logo }) => {
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [month, setMonth] = useState(false);
+  const [selectedLine, setSelectedLine] = useState(null);
 
   // Colors for graphs
   const color62100 = "#FF5733";
@@ -177,6 +178,17 @@ const Graphs = ({ logo }) => {
     setMonth(true);
   };
 
+  // line selection
+  const handleLineClick = (line) => {
+    if (selectedLine === line) {
+      setSelectedLine(null);
+    } else {
+      setSelectedLine(line);
+    }
+  };
+
+  // console.log(selectedLine);
+
   return (
     <div
       className={`app ${isMenuOpen ? "menu-open" : ""}`}
@@ -221,11 +233,15 @@ const Graphs = ({ logo }) => {
               line65200={month ? percentMonth65200 : percentDay65200}
               line65300={month ? percentMonth65300 : percentDay65300}
               graphData={totalData}
+              onLineClick={handleLineClick}
+              selectedLine={selectedLine}
             />
           </div>
           <div className="relative w-full">
             <div className="z-[5] w-full">
               <GraphDaily
+                month={month}
+                selectedLine={selectedLine}
                 graphData={totalData}
                 line62100={
                   month ? percentMonth62100Planned : percentDay62100Planned
@@ -261,6 +277,8 @@ const Graphs = ({ logo }) => {
             </div>
             <div className="absolute left-0 top-0 z-[1] w-full">
               <GraphDaily
+                month={month}
+                selectedLine={selectedLine}
                 graphData={totalData}
                 line62100={month ? percentMonth62100 : percentDay62100}
                 line62100bg={"transparent"}

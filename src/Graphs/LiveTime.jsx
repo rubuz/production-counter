@@ -17,7 +17,11 @@ function LiveDateTime() {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-extrabold tracking-[4px]">
-        {currentDate.toLocaleDateString()}
+        {currentDate.toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })}
       </h1>
       <h1 className="text-3xl font-extrabold tracking-[4px]">
         {currentDate.toLocaleTimeString([], {
