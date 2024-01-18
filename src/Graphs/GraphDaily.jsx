@@ -5,10 +5,11 @@ import {
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./graphs.css";
+import PropTypes from "prop-types";
 
 const GraphDaily = (props) => {
   return (
-    <div style={{ width: "80%" }}>
+    <div className="w-[80%]">
       <CircularProgressbarWithChildren
         value={props.line62100}
         strokeWidth={5}
@@ -17,7 +18,7 @@ const GraphDaily = (props) => {
           trailColor: `${props.line62100bg}`,
         })}
       >
-        <div style={{ width: "89.2%" }}>
+        <div className="w-[89.2%]">
           <CircularProgressbarWithChildren
             value={props.line62200}
             strokeWidth={5.6}
@@ -26,7 +27,7 @@ const GraphDaily = (props) => {
               trailColor: `${props.line62200bg}`,
             })}
           >
-            <div style={{ width: "87.9%" }}>
+            <div className="w-[87.9%]">
               <CircularProgressbarWithChildren
                 value={props.line63000}
                 strokeWidth={6.5}
@@ -35,7 +36,7 @@ const GraphDaily = (props) => {
                   trailColor: `${props.line63000bg}`,
                 })}
               >
-                <div style={{ width: "86.1%" }}>
+                <div className="w-[86.1%]">
                   <CircularProgressbarWithChildren
                     value={props.line63200}
                     strokeWidth={7.3}
@@ -44,7 +45,7 @@ const GraphDaily = (props) => {
                       trailColor: `${props.line63200bg}`,
                     })}
                   >
-                    <div style={{ width: "84.2%" }}>
+                    <div className="w-[84.2%]">
                       <CircularProgressbarWithChildren
                         value={props.line65200}
                         strokeWidth={8.5}
@@ -53,7 +54,7 @@ const GraphDaily = (props) => {
                           trailColor: `${props.line65200bg}`,
                         })}
                       >
-                        <div style={{ width: "81.8%" }}>
+                        <div className="w-[81.8%]">
                           <CircularProgressbar
                             value={props.line65300}
                             strokeWidth={10.7}
@@ -79,6 +80,27 @@ const GraphDaily = (props) => {
       </CircularProgressbarWithChildren>
     </div>
   );
+};
+
+GraphDaily.propTypes = {
+  line62100: PropTypes.number.isRequired,
+  line62200: PropTypes.number.isRequired,
+  line63000: PropTypes.number.isRequired,
+  line63200: PropTypes.number.isRequired,
+  line65200: PropTypes.number.isRequired,
+  line65300: PropTypes.number.isRequired,
+  line62100path: PropTypes.string.isRequired,
+  line62200path: PropTypes.string.isRequired,
+  line63000path: PropTypes.string.isRequired,
+  line63200path: PropTypes.string.isRequired,
+  line65200path: PropTypes.string.isRequired,
+  line65300path: PropTypes.string.isRequired,
+  line62100bg: PropTypes.string.isRequired,
+  line62200bg: PropTypes.string.isRequired,
+  line63000bg: PropTypes.string.isRequired,
+  line63200bg: PropTypes.string.isRequired,
+  line65200bg: PropTypes.string.isRequired,
+  line65300bg: PropTypes.string.isRequired,
 };
 
 export default GraphDaily;
