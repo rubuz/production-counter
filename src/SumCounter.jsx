@@ -136,7 +136,7 @@ const SumCounter = ({ logo }) => {
           {/* <h1 className="grid-item header-item-last">%</h1> */}
         </div>
         <div className="contents">
-          <h2 className="grid-item font-numbers text-amNeutral900 text-4xl font-bold [text-orientation:upright] [writing-mode:vertical-lr]">
+          <h2 className="grid-item font-numbers text-amNeutral900 text-5xl font-extrabold [text-orientation:upright] [writing-mode:vertical-lr]">
             DAN
           </h2>
           <div
@@ -150,7 +150,7 @@ const SumCounter = ({ logo }) => {
           </p>
           {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}
         </div>
-        <h2 className="grid-item font-numbers text-amNeutral900 text-4xl font-bold [text-orientation:upright] [writing-mode:vertical-lr]">
+        <h2 className="grid-item font-numbers text-amNeutral900 text-5xl font-extrabold [text-orientation:upright] [writing-mode:vertical-lr]">
           MESEC
         </h2>
         <div
