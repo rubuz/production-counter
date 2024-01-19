@@ -125,9 +125,9 @@ const GraphDaily = (props) => {
             }}
           >
             <div
-              className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(62200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+              className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
             >
-              <div>
+              <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
                 <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
                 <span>{diffPlan(62200)}</span>
               </div>
