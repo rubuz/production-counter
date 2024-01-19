@@ -2,6 +2,7 @@ import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./graphs.css";
 import PropTypes from "prop-types";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const GraphDaily = (props) => {
   const lineDataProizvedeno = () => {
@@ -40,6 +41,8 @@ const GraphDaily = (props) => {
     }
   };
 
+  // difference between plan and proizvedeno
+
   const diffPlan = (line) => {
     if (props.graphData[line]) {
       if (props.month) {
@@ -54,7 +57,28 @@ const GraphDaily = (props) => {
         );
       }
     } else {
-      return 0; // or some other default value
+      return 0;
+    }
+  };
+
+  // if planirano_konec_dneva is 0, return true
+  const planEndZero = (line) => {
+    if (props.graphData[line]) {
+      if (props.month) {
+        if (props.graphData[line][1].planirano_konec_dneva === "0") {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        if (props.graphData[line][0].planirano_konec_dneva === "0") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    } else {
+      return false;
     }
   };
 
@@ -74,10 +98,17 @@ const GraphDaily = (props) => {
         }}
       >
         <div
-          className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(62100) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+          className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(62100) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
         >
-          <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
-          <span>{diffPlan(62100)}</span>
+          <div>
+            <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
+            <span>{diffPlan(62100)}</span>
+          </div>
+          <span>
+            <MdKeyboardArrowRight
+              className={`h-8 w-6 ${diffPlan(62100) === 0 ? "" : diffPlan(62100) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+            />
+          </span>
         </div>
         <div className="w-[89.2%]">
           <CircularProgressbarWithChildren
@@ -94,10 +125,17 @@ const GraphDaily = (props) => {
             }}
           >
             <div
-              className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(62200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+              className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(62200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
             >
-              <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
-              <span>{diffPlan(62200)}</span>
+              <div>
+                <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
+                <span>{diffPlan(62200)}</span>
+              </div>
+              <span>
+                <MdKeyboardArrowRight
+                  className={`h-8 w-6 ${diffPlan(62200) === 0 ? "" : diffPlan(62200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                />
+              </span>
             </div>
             <div className="w-[87.9%]">
               <CircularProgressbarWithChildren
@@ -114,10 +152,17 @@ const GraphDaily = (props) => {
                 }}
               >
                 <div
-                  className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(63000) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                  className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(63000) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                 >
-                  <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
-                  <span>{diffPlan(63000)}</span>
+                  <div>
+                    <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
+                    <span>{diffPlan(63000)}</span>
+                  </div>
+                  <span>
+                    <MdKeyboardArrowRight
+                      className={`h-8 w-6 ${diffPlan(63000) === 0 ? "" : diffPlan(63000) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                    />
+                  </span>
                 </div>
                 <div className="w-[86.1%]">
                   <CircularProgressbarWithChildren
@@ -134,10 +179,17 @@ const GraphDaily = (props) => {
                     }}
                   >
                     <div
-                      className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(63200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                      className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(63200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                     >
-                      <span>{diffPlan(63200) > 0 ? "+" : ""}</span>
-                      <span>{diffPlan(63200)}</span>
+                      <div>
+                        <span>{diffPlan(63200) > 0 ? "+" : " "}</span>
+                        <span>{diffPlan(63200)}</span>
+                      </div>
+                      <span>
+                        <MdKeyboardArrowRight
+                          className={`h-8 w-6 ${diffPlan(63200) === 0 ? "" : diffPlan(63200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                        />
+                      </span>
                     </div>
                     <div className="w-[84.2%]">
                       <CircularProgressbarWithChildren
@@ -154,10 +206,17 @@ const GraphDaily = (props) => {
                         }}
                       >
                         <div
-                          className={`absolute top-1 ml-2 text-xl font-bold ${diffPlan(65200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                          className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(65200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                         >
-                          <span>{diffPlan(65200) > 0 ? "+" : ""}</span>
-                          <span>{diffPlan(65200)}</span>
+                          <div>
+                            <span>{diffPlan(65200) > 0 ? "+" : ""}</span>
+                            <span>{diffPlan(65200)}</span>
+                          </div>
+                          <span>
+                            <MdKeyboardArrowRight
+                              className={`h-8 w-6 ${diffPlan(65200) === 0 ? "" : diffPlan(65200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                            />
+                          </span>
                         </div>
                         <div className="relative w-[81.8%]">
                           <CircularProgressbarWithChildren
@@ -174,10 +233,17 @@ const GraphDaily = (props) => {
                             }}
                           >
                             <div
-                              className={`absolute top-1 text-xl font-bold ${diffPlan(65300) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                              className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(65300) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                             >
-                              <span>{diffPlan(65300) > 0 ? "+" : ""}</span>
-                              <span>{diffPlan(65300)}</span>
+                              <div>
+                                <span>{diffPlan(65300) > 0 ? "+" : ""}</span>
+                                <span>{diffPlan(65300)}</span>
+                              </div>
+                              <span>
+                                <MdKeyboardArrowRight
+                                  className={`h-8 w-6 ${diffPlan(65200) === 0 ? "" : diffPlan(65200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                                />
+                              </span>
                             </div>
                           </CircularProgressbarWithChildren>
                         </div>

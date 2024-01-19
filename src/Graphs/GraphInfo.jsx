@@ -58,7 +58,7 @@ const GraphInfo = (props) => {
           onClick={() => props.onLineClick(65200)}
         >
           <div className="flex items-center justify-start gap-4">
-            <div className="dot5 h-8 w-8 rounded-full bg-[#900c3f]"></div>
+            <div className="dot5 h-8 w-8 rounded-full bg-[#3395ff]"></div>
             <div>
               <span className="font-semibold">65200</span> Van Bič
             </div>
@@ -70,7 +70,7 @@ const GraphInfo = (props) => {
           onClick={() => props.onLineClick(65300)}
         >
           <div className="flex items-center justify-start gap-4">
-            <div className="dot6 h-8 w-8 rounded-full bg-[#581845]"></div>
+            <div className="dot6 h-8 w-8 rounded-full bg-[#f70077]"></div>
             <div>
               <span className="font-semibold">65300</span> Active Bič
             </div>

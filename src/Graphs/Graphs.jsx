@@ -19,15 +19,15 @@ const Graphs = ({ logo }) => {
   const color62200 = "#FFC300";
   const color63000 = "#abc480";
   const color63200 = "#C70039";
-  const color65200 = "#900C3F";
-  const color65300 = "#581845";
+  const color65200 = "#3395ff";
+  const color65300 = "#f70077";
 
   const color62100under = "#FFAB80";
   const color62200under = "#FFDE80";
   const color63000under = "#d7e8a2";
   const color63200under = "#E6808A";
-  const color65200under = "#C6808A";
-  const color65300under = "#8A668A";
+  const color65200under = "#b3d8ff";
+  const color65300under = "#ffa9d2";
 
   // API call
   const fetchDataForAllLines = async () => {
