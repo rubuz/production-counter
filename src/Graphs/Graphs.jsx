@@ -211,7 +211,7 @@ const Graphs = ({ logo }) => {
         </div>
         <div className="grid h-full w-full grid-cols-2 grid-rows-1 items-center justify-center">
           <div className="h-full w-full p-8">
-            <div className="flex cursor-pointer justify-around py-4 text-5xl">
+            <div className="flex cursor-pointer justify-center gap-8 py-4 text-5xl">
               <div
                 onClick={toggleDay}
                 className={month ? "btn-unactive" : "btn-active"}

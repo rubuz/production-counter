@@ -24,7 +24,7 @@ const GraphInfo = (props) => {
           <div className="flex items-center justify-start gap-4">
             <div className="dot2 h-8 w-8 rounded-full bg-[#ffc300]"></div>
             <div>
-              <span className="font-semibold">62200</span> Astela & Alipna
+              <span className="font-semibold">62200</span> Astela & Alpina
             </div>
           </div>
           <div>{props.line62200}%</div>

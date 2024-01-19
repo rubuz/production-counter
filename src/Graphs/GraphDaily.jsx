@@ -1,8 +1,4 @@
-import {
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from "react-circular-progressbar";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./graphs.css";
 import PropTypes from "prop-types";
@@ -44,6 +40,24 @@ const GraphDaily = (props) => {
     }
   };
 
+  const diffPlan = (line) => {
+    if (props.graphData[line]) {
+      if (props.month) {
+        return (
+          props.graphData[line][1].proizvedeno -
+          props.graphData[line][1].planirano
+        );
+      } else {
+        return (
+          props.graphData[line][0].proizvedeno -
+          props.graphData[line][0].planirano
+        );
+      }
+    } else {
+      return 0; // or some other default value
+    }
+  };
+
   return (
     <div className="w-[80%]">
       <CircularProgressbarWithChildren
@@ -59,6 +73,12 @@ const GraphDaily = (props) => {
           },
         }}
       >
+        <div
+          className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(62100) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+        >
+          <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
+          <span>{diffPlan(62100)}</span>
+        </div>
         <div className="w-[89.2%]">
           <CircularProgressbarWithChildren
             value={props.line62200}
@@ -73,6 +93,12 @@ const GraphDaily = (props) => {
               },
             }}
           >
+            <div
+              className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(62200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+            >
+              <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
+              <span>{diffPlan(62200)}</span>
+            </div>
             <div className="w-[87.9%]">
               <CircularProgressbarWithChildren
                 value={props.line63000}
@@ -87,6 +113,12 @@ const GraphDaily = (props) => {
                   },
                 }}
               >
+                <div
+                  className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(63000) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                >
+                  <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
+                  <span>{diffPlan(63000)}</span>
+                </div>
                 <div className="w-[86.1%]">
                   <CircularProgressbarWithChildren
                     value={props.line63200}
@@ -101,6 +133,12 @@ const GraphDaily = (props) => {
                       },
                     }}
                   >
+                    <div
+                      className={`absolute top-1.5 ml-2 text-xl font-bold ${diffPlan(63200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                    >
+                      <span>{diffPlan(63200) > 0 ? "+" : ""}</span>
+                      <span>{diffPlan(63200)}</span>
+                    </div>
                     <div className="w-[84.2%]">
                       <CircularProgressbarWithChildren
                         value={props.line65200}
@@ -115,8 +153,14 @@ const GraphDaily = (props) => {
                           },
                         }}
                       >
-                        <div className="w-[81.8%]">
-                          <CircularProgressbar
+                        <div
+                          className={`absolute top-1 ml-2 text-xl font-bold ${diffPlan(65200) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                        >
+                          <span>{diffPlan(65200) > 0 ? "+" : ""}</span>
+                          <span>{diffPlan(65200)}</span>
+                        </div>
+                        <div className="relative w-[81.8%]">
+                          <CircularProgressbarWithChildren
                             value={props.line65300}
                             strokeWidth={10.7}
                             styles={{
@@ -128,7 +172,14 @@ const GraphDaily = (props) => {
                                 transition: "all 0.2s ease-in-out",
                               },
                             }}
-                          />
+                          >
+                            <div
+                              className={`absolute top-1 text-xl font-bold ${diffPlan(65300) === 0 ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}`}
+                            >
+                              <span>{diffPlan(65300) > 0 ? "+" : ""}</span>
+                              <span>{diffPlan(65300)}</span>
+                            </div>
+                          </CircularProgressbarWithChildren>
                         </div>
                         <div
                           className={`absolute text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"}`}
@@ -151,7 +202,7 @@ const GraphDaily = (props) => {
                               {lineDataPlanFinal()}
                             </span>
                           </p>
-                        </div>
+                        </div>{" "}
                       </CircularProgressbarWithChildren>
                     </div>
                   </CircularProgressbarWithChildren>

@@ -16,7 +16,7 @@
   }
 
   .btn-unactive {
-    @apply flex h-[80px] w-[30%] items-center justify-center rounded-full bg-transparent text-gray-300 transition-all duration-200 hover:scale-105 hover:text-black;
+    @apply hover:text-amPrimary hover:border-amPrimary flex h-[80px] w-[30%] items-center justify-center rounded-full border-[2px]  border-gray-300 bg-transparent text-gray-300 transition-all duration-200;
   }
 }
 

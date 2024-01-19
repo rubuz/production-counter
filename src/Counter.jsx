@@ -164,7 +164,7 @@ const Counter = ({ line, logo }) => {
 };
 
 Counter.propTypes = {
-  line: PropTypes.string.isRequired,
+  line: PropTypes.number.isRequired,
   logo: PropTypes.string.isRequired,
 };
 
