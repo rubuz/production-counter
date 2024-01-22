@@ -1,6 +1,4 @@
-import "./App.css";
 import "./counter.css";
-import "./sumCounter.css";
 // import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";

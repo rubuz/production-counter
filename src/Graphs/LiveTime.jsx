@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./graphs.css";
 
 function LiveDateTime() {
   const [currentDate, setCurrentDate] = useState(new Date());

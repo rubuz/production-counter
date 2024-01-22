@@ -1,4 +1,3 @@
-import "./App.css";
 import "./counter.css";
 // import Progress from "./Progress";
 import { useEffect, useState } from "react";

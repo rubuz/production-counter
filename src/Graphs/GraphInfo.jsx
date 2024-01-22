@@ -1,10 +1,20 @@
 import PropTypes from "prop-types";
+import LineItem from "./LineItem";
 
 const GraphInfo = (props) => {
+  const lines = [
+    { line: 62100, name: "Prikolice 1", color: "#ff5733" },
+    { line: 62200, name: "Astela & Alpina", color: "#ffc300" },
+    { line: 63000, name: "Avtodomi", color: "#abc480" },
+    { line: 63200, name: "Sonic & Coral Supreme", color: "#c70039" },
+    { line: 65200, name: "Van Bič", color: "#3395ff" },
+    { line: 65300, name: "Active Bič", color: "#f70077" },
+  ];
+
   return (
     <div className="font-numbers mx-auto h-[80%] w-[80%] text-3xl">
       <ul className="flex h-full flex-col justify-around">
-        <li
+        {/* <li
           className={`flex cursor-pointer items-center justify-between pb-4 transition-all duration-200 ease-in-out hover:translate-x-2 ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-35 grayscale" : ""}`}
           onClick={() => props.onLineClick(62100)}
         >
@@ -75,7 +85,18 @@ const GraphInfo = (props) => {
             </div>
           </div>
           <div>{props.line65300}%</div>
-        </li>
+        </li> */}
+        {lines.map((line) => (
+          <LineItem
+            key={line.line}
+            line={line.line}
+            selectedLine={props.selectedLine}
+            onLineClick={props.onLineClick}
+            color={line.color}
+            name={line.name}
+            procent={props[`line${line.line}`]}
+          />
+        ))}
       </ul>
     </div>
   );

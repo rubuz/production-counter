@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import GraphDaily from "./GraphDaily";
-// import GraphMonthly from "./GraphMonthly";
 import SideMenu from "../SideMenu";
-import "./graphs.css";
 import GraphInfo from "./GraphInfo";
 import LiveDateTime from "./LiveTime";
 import PropTypes from "prop-types";

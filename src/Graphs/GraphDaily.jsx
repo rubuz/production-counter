@@ -1,6 +1,5 @@
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import "./graphs.css";
 import PropTypes from "prop-types";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
@@ -98,9 +97,9 @@ const GraphDaily = (props) => {
         }}
       >
         <div
-          className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(62100) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+          className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
         >
-          <div>
+          <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
             <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
             <span>{diffPlan(62100)}</span>
           </div>
@@ -152,9 +151,9 @@ const GraphDaily = (props) => {
                 }}
               >
                 <div
-                  className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(63000) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+                  className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                 >
-                  <div>
+                  <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
                     <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
                     <span>{diffPlan(63000)}</span>
                   </div>
@@ -179,9 +178,11 @@ const GraphDaily = (props) => {
                     }}
                   >
                     <div
-                      className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(63200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+                      className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                     >
-                      <div>
+                      <div
+                        className={`${planEndZero(62200) ? "opacity-100" : ""}`}
+                      >
                         <span>{diffPlan(63200) > 0 ? "+" : " "}</span>
                         <span>{diffPlan(63200)}</span>
                       </div>
@@ -206,9 +207,11 @@ const GraphDaily = (props) => {
                         }}
                       >
                         <div
-                          className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(65200) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+                          className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                         >
-                          <div>
+                          <div
+                            className={`${planEndZero(62200) ? "opacity-100" : ""}`}
+                          >
                             <span>{diffPlan(65200) > 0 ? "+" : ""}</span>
                             <span>{diffPlan(65200)}</span>
                           </div>
@@ -233,9 +236,11 @@ const GraphDaily = (props) => {
                             }}
                           >
                             <div
-                              className={`absolute top-1 ml-8 text-xl font-bold ${planEndZero(65300) ? "hidden" : ""} ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
+                              className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200`}
                             >
-                              <div>
+                              <div
+                                className={`${planEndZero(62200) ? "opacity-100" : ""}`}
+                              >
                                 <span>{diffPlan(65300) > 0 ? "+" : ""}</span>
                                 <span>{diffPlan(65300)}</span>
                               </div>
