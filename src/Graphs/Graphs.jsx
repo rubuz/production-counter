@@ -11,6 +11,8 @@ const Graphs = ({ logo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [month, setMonth] = useState(false);
   const [selectedLine, setSelectedLine] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   // Colors for graphs
   const color62100 = "#FF5733";
@@ -29,6 +31,7 @@ const Graphs = ({ logo }) => {
 
   // API call
   const fetchDataForAllLines = async () => {
+    setIsLoading(true);
     try {
       // Use Promise.all() to fetch data for all production lines concurrently
       const responses = await Promise.all(
@@ -60,6 +63,9 @@ const Graphs = ({ logo }) => {
       setTotalData(allData);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
+      if (initialLoad) setInitialLoad(false);
     }
   };
 
@@ -207,98 +213,129 @@ const Graphs = ({ logo }) => {
           </h1>
           <LiveDateTime />
         </div>
-        <div className="grid h-full w-full grid-cols-2 grid-rows-1 items-center justify-center">
-          <div className="h-full w-full p-8">
-            <div className="flex cursor-pointer justify-center gap-8 py-4 text-5xl">
+        <div>
+          {isLoading && initialLoad ? (
+            <div className="text-center">
               <div
-                onClick={toggleDay}
-                className={month ? "btn-unactive" : "btn-active"}
+                role="status"
+                className="flex items-center justify-center gap-6"
               >
-                <h3>Dan</h3>
+                <svg
+                  aria-hidden="true"
+                  className="fill-amAccent inline h-16 w-16 animate-spin text-gray-200"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+                <span className="text-3xl font-semibold">
+                  Nalaganje podatkov...
+                </span>
               </div>
-              <div
-                onClick={toggleMonth}
-                className={month ? "btn-active" : "btn-unactive"}
-              >
-                <h3>Mesec</h3>
+            </div>
+          ) : (
+            <div className="grid h-full w-full grid-cols-2 grid-rows-1 items-center justify-center">
+              <div className="h-full w-full p-8">
+                <div className="flex cursor-pointer justify-center gap-8 py-4 text-5xl">
+                  <div
+                    onClick={toggleDay}
+                    className={month ? "btn-unactive" : "btn-active"}
+                  >
+                    <h3>Dan</h3>
+                  </div>
+                  <div
+                    onClick={toggleMonth}
+                    className={month ? "btn-active" : "btn-unactive"}
+                  >
+                    <h3>Mesec</h3>
+                  </div>
+                </div>
+                <GraphInfo
+                  line62100={month ? percentMonth62100 : percentDay62100}
+                  line62200={month ? percentMonth62200 : percentDay62200}
+                  line63000={month ? percentMonth63000 : percentDay63000}
+                  line63200={month ? percentMonth63200 : percentDay63200}
+                  line65200={month ? percentMonth65200 : percentDay65200}
+                  line65300={month ? percentMonth65300 : percentDay65300}
+                  graphData={totalData}
+                  onLineClick={handleLineClick}
+                  selectedLine={selectedLine}
+                />
+              </div>
+              <div className="relative w-full">
+                <div className="z-[5] w-full">
+                  <GraphDaily
+                    month={month}
+                    selectedLine={selectedLine}
+                    graphData={totalData}
+                    line62100={
+                      month ? percentMonth62100Planned : percentDay62100Planned
+                    }
+                    line62100bg={"#f0f0f0"}
+                    line62100path={color62100under}
+                    line62200={
+                      month ? percentMonth62200Planned : percentDay62200Planned
+                    }
+                    line62200bg={"#f0f0f0"}
+                    line62200path={color62200under}
+                    line63000={
+                      month ? percentMonth63000Planned : percentDay63000Planned
+                    }
+                    line63000bg={"#f0f0f0"}
+                    line63000path={color63000under}
+                    line63200={
+                      month ? percentMonth63200Planned : percentDay63200Planned
+                    }
+                    line63200bg={"#f0f0f0"}
+                    line63200path={color63200under}
+                    line65200={
+                      month ? percentMonth65200Planned : percentDay65200Planned
+                    }
+                    line65200bg={"#f0f0f0"}
+                    line65200path={color65200under}
+                    line65300={
+                      month ? percentMonth65300Planned : percentDay65300Planned
+                    }
+                    line65300bg={"#f0f0f0"}
+                    line65300path={color65300under}
+                  />
+                </div>
+                <div className="absolute left-0 top-0 z-[1] w-full">
+                  <GraphDaily
+                    month={month}
+                    selectedLine={selectedLine}
+                    graphData={totalData}
+                    line62100={month ? percentMonth62100 : percentDay62100}
+                    line62100bg={"transparent"}
+                    line62100path={color62100}
+                    line62200={month ? percentMonth62200 : percentDay62200}
+                    line62200bg={"transparent"}
+                    line62200path={color62200}
+                    line63000={month ? percentMonth63000 : percentDay63000}
+                    line63000bg={"transparent"}
+                    line63000path={color63000}
+                    line63200={month ? percentMonth63200 : percentDay63200}
+                    line63200bg={"transparent"}
+                    line63200path={color63200}
+                    line65200={month ? percentMonth65200 : percentDay65200}
+                    line65200bg={"transparent"}
+                    line65200path={color65200}
+                    line65300={month ? percentMonth65300 : percentDay65300}
+                    line65300bg={"transparent"}
+                    line65300path={color65300}
+                  />
+                </div>
               </div>
             </div>
-            <GraphInfo
-              line62100={month ? percentMonth62100 : percentDay62100}
-              line62200={month ? percentMonth62200 : percentDay62200}
-              line63000={month ? percentMonth63000 : percentDay63000}
-              line63200={month ? percentMonth63200 : percentDay63200}
-              line65200={month ? percentMonth65200 : percentDay65200}
-              line65300={month ? percentMonth65300 : percentDay65300}
-              graphData={totalData}
-              onLineClick={handleLineClick}
-              selectedLine={selectedLine}
-            />
-          </div>
-          <div className="relative w-full">
-            <div className="z-[5] w-full">
-              <GraphDaily
-                month={month}
-                selectedLine={selectedLine}
-                graphData={totalData}
-                line62100={
-                  month ? percentMonth62100Planned : percentDay62100Planned
-                }
-                line62100bg={"#f0f0f0"}
-                line62100path={color62100under}
-                line62200={
-                  month ? percentMonth62200Planned : percentDay62200Planned
-                }
-                line62200bg={"#f0f0f0"}
-                line62200path={color62200under}
-                line63000={
-                  month ? percentMonth63000Planned : percentDay63000Planned
-                }
-                line63000bg={"#f0f0f0"}
-                line63000path={color63000under}
-                line63200={
-                  month ? percentMonth63200Planned : percentDay63200Planned
-                }
-                line63200bg={"#f0f0f0"}
-                line63200path={color63200under}
-                line65200={
-                  month ? percentMonth65200Planned : percentDay65200Planned
-                }
-                line65200bg={"#f0f0f0"}
-                line65200path={color65200under}
-                line65300={
-                  month ? percentMonth65300Planned : percentDay65300Planned
-                }
-                line65300bg={"#f0f0f0"}
-                line65300path={color65300under}
-              />
-            </div>
-            <div className="absolute left-0 top-0 z-[1] w-full">
-              <GraphDaily
-                month={month}
-                selectedLine={selectedLine}
-                graphData={totalData}
-                line62100={month ? percentMonth62100 : percentDay62100}
-                line62100bg={"transparent"}
-                line62100path={color62100}
-                line62200={month ? percentMonth62200 : percentDay62200}
-                line62200bg={"transparent"}
-                line62200path={color62200}
-                line63000={month ? percentMonth63000 : percentDay63000}
-                line63000bg={"transparent"}
-                line63000path={color63000}
-                line63200={month ? percentMonth63200 : percentDay63200}
-                line63200bg={"transparent"}
-                line63200path={color63200}
-                line65200={month ? percentMonth65200 : percentDay65200}
-                line65200bg={"transparent"}
-                line65200path={color65200}
-                line65300={month ? percentMonth65300 : percentDay65300}
-                line65300bg={"transparent"}
-                line65300path={color65300}
-              />
-            </div>
-          </div>
+          )}
         </div>
       </div>
       <div

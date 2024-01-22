@@ -83,6 +83,8 @@ const SideMenu = () => {
             <span className="font-bold">SUMA </span>Vse linije
           </a>
         </li>
+
+        {/* HIDDEN from SIDE-MENU */}
         <li className="hidden">
           <a
             className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 rounded-br-[2rem] px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"

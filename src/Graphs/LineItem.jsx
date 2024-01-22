@@ -19,14 +19,18 @@ const LineItem = ({
           <span className="font-semibold">{line}</span> {name}
         </div>
       </div>
-      <div>{procent}%</div>
+      <div className="font-semibold">{procent}%</div>
     </li>
   );
 };
 
+LineItem.defaultProps = {
+  selectedLine: 0,
+};
+
 LineItem.propTypes = {
   line: PropTypes.number.isRequired,
-  selectedLine: PropTypes.string,
+  selectedLine: PropTypes.number,
   onLineClick: PropTypes.func.isRequired,
   color: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
