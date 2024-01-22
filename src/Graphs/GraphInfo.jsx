@@ -1,4 +1,3 @@
-import "./graphinfo.css";
 import PropTypes from "prop-types";
 
 const GraphInfo = (props) => {
