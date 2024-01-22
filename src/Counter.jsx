@@ -1,10 +1,10 @@
-import "./App.css";
 import "./counter.css";
-import Progress from "./Progress";
+// import Progress from "./Progress";
 import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";
 import SideMenu from "./SideMenu";
 import { useIdle } from "react-use";
+import PropTypes from "prop-types";
 
 const Counter = ({ line, logo }) => {
   const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
@@ -89,7 +89,6 @@ const Counter = ({ line, logo }) => {
       if (document.visibilityState === "visible") {
         if ("wakeLock" in navigator) {
           navigator.wakeLock.request("screen");
-          console.log("screen lock active");
         }
       }
     };
@@ -107,45 +106,65 @@ const Counter = ({ line, logo }) => {
       onClick={toggleMenuIfOpen}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main className="main">
-        <div className="header-wrapper grid-item">
-          <div className="img-container grid-item header-item-first">
-            <img src={logo} alt="" onClick={toggleMenu} className="img-logo" />
+      <main className="main bg-amNeutral100 grid min-h-[100dvh] min-w-[100dvw] grid-cols-[150px_1fr_1fr] grid-rows-[200px_auto_auto] items-center justify-items-center overflow-hidden rounded-[50px]">
+        <div className="contents">
+          <div className="grid-item header-item group flex cursor-pointer items-center justify-center rounded-bl-[50px] transition-all duration-300 ease-in">
+            <img
+              src={logo}
+              alt=""
+              onClick={toggleMenu}
+              className="group-hover:filter-iconHover w-[70%] transition-all duration-200 ease-in group-hover:scale-110"
+            />
           </div>
-          <h1 className="grid-item">REALIZIRANO</h1>
-          <h1 className="grid-item header-item-last">PLAN</h1>
+          <h1 className="grid-item header-item font-numbers font-extrabold tracking-[4px]">
+            REALIZIRANO
+          </h1>
+          <h1 className="grid-item header-item font-numbers rounded-br-[50px] font-extrabold tracking-[4px]">
+            PLAN
+          </h1>
           {/* <h1 className="grid-item header-item-last">%</h1> */}
         </div>
-        <div className="second-wrapper">
-          <h2 className="grid-item second-wrapper-first">DAN</h2>
+        <div className="contents">
+          <h2 className="grid-item font-numbers text-amNeutral900 text-5xl font-extrabold [text-orientation:upright] [writing-mode:vertical-lr]">
+            DAN
+          </h2>
           <div
-            className="grid-item done-number"
+            className="grid-item px-8 text-[15rem] font-extrabold"
             style={{ color: numberColor(dayDone, dayPlan) }}
           >
             <AnimateNumber value={dayDone} />
           </div>
-          <p className="grid-item second-wrapper-second">
+          <p className="grid-item px-8 text-[14rem] font-extrabold">
             {dayPlan}/{dayPlanEnd}
           </p>
           {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}
         </div>
-        <h2 className="grid-item">MESEC</h2>
+        <h2 className="grid-item font-numbers text-amNeutral900 text-5xl font-extrabold [text-orientation:upright] [writing-mode:vertical-lr] ">
+          MESEC
+        </h2>
         <div
-          className="grid-item done-number"
+          className="grid-item px-8 text-[15rem] font-extrabold"
           style={{ color: numberColor(monthDone, monthPlan) }}
         >
           <AnimateNumber value={monthDone} />
         </div>
-        <p className="grid-item">
+        <p className="grid-item px-8 text-[14rem] font-extrabold">
           {monthPlan}/{monthPlanCurrent}
         </p>
         {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
       </main>
-      <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
+      <div
+        className={`side-menu fixed left-0 top-0 h-auto  bg-white ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} z-50 rounded-br-[2rem] transition-all duration-200 ease-in-out`}
+      >
         <SideMenu />
       </div>
     </div>
   );
+};
+
+Counter.propTypes = {
+  line: PropTypes.number.isRequired,
+  logo: PropTypes.string.isRequired,
 };
 
 export default Counter;

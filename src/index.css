@@ -1,3 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .header-item {
+    @apply bg-amPrimary flex h-full w-full items-center justify-center overflow-hidden text-[5.5rem] font-extrabold text-white shadow;
+  }
+
+  .grid-item {
+    @apply flex h-full w-full items-center justify-center;
+  }
+
+  .btn-active {
+    @apply bg-amPrimary flex h-[80px] w-[30%] items-center justify-center rounded-full text-white;
+  }
+
+  .btn-unactive {
+    @apply hover:text-amPrimary hover:border-amPrimary flex h-[80px] w-[30%] items-center justify-center rounded-full border-[2px]  border-gray-300 bg-transparent text-gray-300 transition-all duration-200;
+  }
+}
+
 :root {
   --ff-regular: "Inter", sans-serif;
   --ff-numbers: "Lato", sans-serif;
@@ -96,7 +118,7 @@ h6 {
   isolation: isolate;
 }
 
-.dark-theme {
+/* .dark-theme {
   --clr-primary: #284170;
   --clr-accent: #d20000;
   --clr-neutral-100: #14151a;
@@ -110,4 +132,4 @@ h6 {
 
 .dark-theme p {
   color: var(--clr-bg);
-}
+} */

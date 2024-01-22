@@ -1,69 +1,99 @@
-import "./sidemenu.css";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-const getStorageTheme = () => {
-  let theme = "light-theme";
-  if (localStorage.getItem("theme")) {
-    theme = localStorage.getItem("theme");
-  }
-  return theme;
-};
+// const getStorageTheme = () => {
+//   let theme = "light-theme";
+//   if (localStorage.getItem("theme")) {
+//     theme = localStorage.getItem("theme");
+//   }
+//   return theme;
+// };
 
 const SideMenu = () => {
-  const [theme, setTheme] = useState(getStorageTheme());
+  //   const [theme, setTheme] = useState(getStorageTheme());
 
-  const toogleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
-    } else {
-      setTheme("dark-theme");
-    }
-  };
+  //   const toogleTheme = () => {
+  //     if (theme === "dark-theme") {
+  //       setTheme("light-theme");
+  //     } else {
+  //       setTheme("dark-theme");
+  //     }
+  //   };
 
-  useEffect(() => {
-    document.documentElement.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  //   useEffect(() => {
+  //     document.documentElement.className = theme;
+  //     localStorage.setItem("theme", theme);
+  //   }, [theme]);
 
   return (
     <>
       <ul>
         <li>
-          <a href="/62100">
-            <span>62100</span>Prikolice 1
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/62100"
+          >
+            <span className="font-bold">62100</span>Prikolice 1
           </a>
         </li>
         <li>
-          <a href="/62200">
-            <span>62200 </span>Astela & Alipna
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/62200"
+          >
+            <span className="font-bold">62200 </span>Astela & Alipna
           </a>
         </li>
         <li>
-          <a href="/63000">
-            <span>63000 </span>Avtodomi
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/63000"
+          >
+            <span className="font-bold">63000 </span>Avtodomi
           </a>
         </li>
         <li>
-          <a href="/63200">
-            <span>63200 </span>Sonic & Coral Supreme
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/63200"
+          >
+            <span className="font-bold">63200 </span>Sonic & Coral Supreme
           </a>
         </li>
         <li>
-          <a href="/65200">
-            <span>65200 </span>Van Bič
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/65200"
+          >
+            <span className="font-bold">65200 </span>Van Bič
           </a>
         </li>
         <li>
-          <a href="/65300">
-            <span>65300 </span>Active Bič
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/65300"
+          >
+            <span className="font-bold">65300 </span>Active Bič
           </a>
         </li>
         <li>
-          <a href="/sum">
-            <span>SUMA </span>Vse linije
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/sum"
+          >
+            <span className="font-bold">SUMA </span>Vse linije
           </a>
         </li>
-        <li onClick={toogleTheme}>
+
+        {/* HIDDEN from SIDE-MENU */}
+        <li className="hidden">
+          <a
+            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 rounded-br-[2rem] px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            href="/graphs"
+          >
+            <span className="font-bold">GRAFI </span>Graf
+          </a>
+        </li>
+        {/* <li onClick={toogleTheme}>
           <div className="theme-btn">
             {theme === "light-theme" ? (
               // <img className="theme-icon" src={Moon} />
@@ -103,7 +133,7 @@ const SideMenu = () => {
               </svg>
             )}
           </div>
-        </li>
+        </li> */}
       </ul>
     </>
   );
