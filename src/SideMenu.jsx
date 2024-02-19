@@ -29,7 +29,7 @@ const SideMenu = () => {
       <ul>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/62100"
           >
             <span className="font-bold">62100</span>Prikolice 1
@@ -37,7 +37,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/62200"
           >
             <span className="font-bold">62200 </span>Astela & Alipna
@@ -45,7 +45,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/63000"
           >
             <span className="font-bold">63000 </span>Avtodomi
@@ -53,7 +53,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/63200"
           >
             <span className="font-bold">63200 </span>Sonic & Coral Supreme
@@ -61,7 +61,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/65200"
           >
             <span className="font-bold">65200 </span>Van Bič
@@ -69,7 +69,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/65300"
           >
             <span className="font-bold">65300 </span>Active Bič
@@ -77,7 +77,7 @@ const SideMenu = () => {
         </li>
         <li>
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/sum"
           >
             <span className="font-bold">SUMA </span>Vse linije
@@ -87,7 +87,7 @@ const SideMenu = () => {
         {/* HIDDEN from SIDE-MENU */}
         <li className="hidden">
           <a
-            className="hover:text-amNeutral100 hover:bg-amPrimary text-amText flex w-full gap-8 rounded-br-[2rem] px-8 py-6 text-[1.5rem] duration-300 ease-in hover:transition-all"
+            className="flex w-full gap-8 rounded-br-[2rem] px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/graphs"
           >
             <span className="font-bold">GRAFI </span>Graf

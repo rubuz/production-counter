@@ -11,7 +11,7 @@ import Graphs from "./Graphs/Graphs";
 
 function App() {
   return (
-    <div className="bg-amNeutral800 grid content-center">
+    <div className="grid content-center bg-amNeutral800">
       <div className="relative overflow-x-hidden">
         <Routes>
           <Route path="/*" element={<Counter line={62100} logo={caravan} />} />
