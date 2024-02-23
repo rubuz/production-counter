@@ -85,7 +85,7 @@ const SideMenu = () => {
         </li>
 
         {/* HIDDEN from SIDE-MENU */}
-        <li className="hidden">
+        <li className="visible">
           <a
             className="flex w-full gap-8 rounded-br-[2rem] px-8 py-6 text-[1.5rem] text-amText duration-300 ease-in hover:bg-amPrimary hover:text-amNeutral100 hover:transition-all"
             href="/graphs"

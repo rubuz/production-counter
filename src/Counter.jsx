@@ -5,6 +5,7 @@ import AnimateNumber from "./AnimateNumber";
 import SideMenu from "./SideMenu";
 import { useIdle } from "react-use";
 import PropTypes from "prop-types";
+import LiveTimeCounter from "./LiveTimeCounter";
 
 const Counter = ({ line, logo }) => {
   const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
@@ -191,10 +192,14 @@ const Counter = ({ line, logo }) => {
             <p className="grid-item px-8 text-[14rem] font-extrabold">
               {monthPlan}/{monthPlanCurrent}
             </p>
-            {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
+            {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}{" "}
+            <div className="absolute bottom-2 right-12">
+              <LiveTimeCounter />
+            </div>
           </>
         )}
       </main>
+
       <div
         className={`side-menu fixed left-0 top-0 h-auto  bg-white ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} z-50 rounded-br-[2rem] transition-all duration-200 ease-in-out`}
       >

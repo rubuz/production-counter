@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AnimateNumber from "./AnimateNumber";
 import SideMenu from "./SideMenu";
 import PropTypes from "prop-types";
+import LiveTimeCounter from "./LiveTimeCounter";
 
 const SumCounter = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
@@ -198,6 +199,9 @@ const SumCounter = ({ logo }) => {
               {monthPlan}/{monthPlanCurrent}
             </p>
             {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
+            <div className="absolute bottom-2 right-12">
+              <LiveTimeCounter />
+            </div>
           </>
         )}
       </main>
