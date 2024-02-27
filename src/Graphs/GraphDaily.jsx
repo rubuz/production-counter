@@ -82,7 +82,7 @@ const GraphDaily = (props) => {
   };
 
   return (
-    <div className="w-[80%]">
+    <div className="mx-auto w-[80%] text-lg max-md:text-base max-sm:text-base 2xl:text-xl">
       <CircularProgressbarWithChildren
         value={props.line62100}
         strokeWidth={5}
@@ -97,15 +97,15 @@ const GraphDaily = (props) => {
         }}
       >
         <div
-          className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(62100) ? "hidden" : ""}`}
+          className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(62100) ? "hidden" : ""}`}
         >
-          <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
+          <div className={`${planEndZero(62200) ? "opacity-100" : ""} `}>
             <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
             <span>{diffPlan(62100)}</span>
           </div>
           <span>
             <MdKeyboardArrowRight
-              className={`h-8 w-6 ${diffPlan(62100) === 0 ? "" : diffPlan(62100) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+              className={`graph-icon ${diffPlan(62100) === 0 ? "" : diffPlan(62100) > 0 ? "-rotate-90" : "rotate-90"}`}
             />
           </span>
         </div>
@@ -124,7 +124,7 @@ const GraphDaily = (props) => {
             }}
           >
             <div
-              className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(62200) ? "hidden" : ""}`}
+              className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(62200) ? "hidden" : ""}`}
             >
               <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
                 <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
@@ -132,7 +132,7 @@ const GraphDaily = (props) => {
               </div>
               <span>
                 <MdKeyboardArrowRight
-                  className={`h-8 w-6 ${diffPlan(62200) === 0 ? "" : diffPlan(62200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                  className={`graph-icon ${diffPlan(62200) === 0 ? "" : diffPlan(62200) > 0 ? "-rotate-90" : "rotate-90"}`}
                 />
               </span>
             </div>
@@ -151,7 +151,7 @@ const GraphDaily = (props) => {
                 }}
               >
                 <div
-                  className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(63000) ? "hidden" : ""}`}
+                  className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(63000) ? "hidden" : ""}`}
                 >
                   <div className={`${planEndZero(63000) ? "opacity-100" : ""}`}>
                     <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
@@ -159,7 +159,7 @@ const GraphDaily = (props) => {
                   </div>
                   <span>
                     <MdKeyboardArrowRight
-                      className={`h-8 w-6 ${diffPlan(63000) === 0 ? "" : diffPlan(63000) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                      className={`graph-icon ${diffPlan(63000) === 0 ? "" : diffPlan(63000) > 0 ? "-rotate-90" : "rotate-90"}`}
                     />
                   </span>
                 </div>
@@ -178,7 +178,7 @@ const GraphDaily = (props) => {
                     }}
                   >
                     <div
-                      className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(63200) ? "hidden" : ""}`}
+                      className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(63200) ? "hidden" : ""}`}
                     >
                       <div
                         className={`${planEndZero(63200) ? "opacity-100" : ""}`}
@@ -188,7 +188,7 @@ const GraphDaily = (props) => {
                       </div>
                       <span>
                         <MdKeyboardArrowRight
-                          className={`h-8 w-6 ${diffPlan(63200) === 0 ? "" : diffPlan(63200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                          className={`graph-icon ${diffPlan(63200) === 0 ? "" : diffPlan(63200) > 0 ? "-rotate-90" : "rotate-90"}`}
                         />
                       </span>
                     </div>
@@ -207,7 +207,7 @@ const GraphDaily = (props) => {
                         }}
                       >
                         <div
-                          className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(65200) ? "hidden" : ""}`}
+                          className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} duration-200 ${planEndZero(65200) ? "hidden" : ""}`}
                         >
                           <div
                             className={`${planEndZero(65200) ? "opacity-100" : ""}`}
@@ -217,7 +217,7 @@ const GraphDaily = (props) => {
                           </div>
                           <span>
                             <MdKeyboardArrowRight
-                              className={`h-8 w-6 ${diffPlan(65200) === 0 ? "" : diffPlan(65200) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                              className={`graph-icon ${diffPlan(65200) === 0 ? "" : diffPlan(65200) > 0 ? "-rotate-90" : "rotate-90"}`}
                             />
                           </span>
                         </div>
@@ -236,7 +236,7 @@ const GraphDaily = (props) => {
                             }}
                           >
                             <div
-                              className={`absolute top-1 ml-8 text-xl font-bold ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} flex items-center transition-all duration-200 ${planEndZero(65300) ? "hidden" : ""}`}
+                              className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(65300) ? "hidden" : ""}`}
                             >
                               <div
                                 className={`${planEndZero(65300) ? "opacity-100" : ""}`}
@@ -246,14 +246,14 @@ const GraphDaily = (props) => {
                               </div>
                               <span>
                                 <MdKeyboardArrowRight
-                                  className={`h-8 w-6 ${diffPlan(65300) === 0 ? "" : diffPlan(65300) > 0 ? "-rotate-90" : "rotate-90"} transition-all duration-200`}
+                                  className={`graph-icon ${diffPlan(65300) === 0 ? "" : diffPlan(65300) > 0 ? "-rotate-90" : "rotate-90"} `}
                                 />
                               </span>
                             </div>
                           </CircularProgressbarWithChildren>
                         </div>
                         <div
-                          className={`absolute text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"}`}
+                          className={`absolute text-lg 2xl:text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"}`}
                         >
                           <p className="flex w-full justify-between gap-5">
                             Realizirano:{" "}

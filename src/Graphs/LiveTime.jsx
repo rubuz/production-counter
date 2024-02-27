@@ -14,15 +14,15 @@ function LiveDateTime() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-extrabold tracking-[4px]">
+    <div className="flex flex-col items-center justify-center sm:text-base 2xl:text-3xl">
+      <h1 className="font-extrabold tracking-[4px] ">
         {currentDate.toLocaleDateString("en-GB", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric",
         })}
       </h1>
-      <h1 className="text-3xl font-extrabold tracking-[4px]">
+      <h1 className="font-extrabold tracking-[4px]">
         {currentDate.toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",

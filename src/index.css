@@ -4,7 +4,7 @@
 
 @layer components {
   .header-item {
-    @apply bg-amPrimary flex h-full w-full items-center justify-center overflow-hidden text-[5.5rem] font-extrabold text-white shadow;
+    @apply flex h-full w-full items-center justify-center overflow-hidden bg-amPrimary font-extrabold text-white shadow lg:text-5xl 2xl:text-[5.5rem];
   }
 
   .grid-item {
@@ -12,11 +12,23 @@
   }
 
   .btn-active {
-    @apply bg-amPrimary flex h-[80px] w-[30%] items-center justify-center rounded-full text-white;
+    @apply flex h-[60px] min-w-[30%] items-center justify-center rounded-full bg-amPrimary text-white max-md:w-full 2xl:h-[80px] 2xl:w-[30%];
   }
 
   .btn-unactive {
-    @apply hover:text-amPrimary hover:border-amPrimary flex h-[80px] w-[30%] items-center justify-center rounded-full border-[2px]  border-gray-300 bg-transparent text-gray-300 transition-all duration-200;
+    @apply flex min-w-[30%] items-center justify-center rounded-full border-[2px] border-gray-300 bg-transparent text-gray-300 transition-all duration-200  hover:border-amPrimary hover:text-amPrimary max-md:w-full 2xl:h-[80px] 2xl:w-[30%];
+  }
+  .graph-icon {
+    @apply h-8 w-6 transition-all duration-200;
+  }
+  .graph-number_div {
+    @apply absolute top-1 ml-8 flex items-center font-bold transition-all duration-200 max-2xl:top-3 max-xl:top-2 max-lg:top-1 max-md:top-0;
+  }
+  .number-counter {
+    @apply lg:text-[10rem] 2xl:text-[15rem];
+  }
+  .number-counter-2 {
+    @apply lg:text-[10rem] 2xl:text-[14rem];
   }
 }
 
