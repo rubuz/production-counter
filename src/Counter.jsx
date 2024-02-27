@@ -202,7 +202,7 @@ const Counter = ({ line, logo }) => {
           </header>
           <div className="h-full w-full">
             {isLoading && initialLoad ? (
-              <div className="grid min-h-[ca] w-full place-content-center">
+              <div className="absolute top-1/2 mx-auto w-full">
                 <ActivityIndicator />
               </div>
             ) : (

@@ -6,13 +6,18 @@ import SideMenu from "./SideMenu";
 import PropTypes from "prop-types";
 import LiveTimeCounter from "./LiveTimeCounter";
 import ActivityIndicator from "./ActivityIndicator";
+import { useMediaQuery } from "react-responsive";
+import LiveDateTime from "./Graphs/LiveTime";
 
-const SumCounter = ({ logo }) => {
+const SumCounter = ({ logo, line }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
+
+  // Responsive displays
+  const isBigScreen = useMediaQuery({ query: "(min-width: 1280px)" });
 
   const fetchDataForAllLines = async () => {
     setIsLoading(true);
@@ -123,64 +128,148 @@ const SumCounter = ({ logo }) => {
       onClick={toggleMenuIfOpen}
     >
       {/* <button onClick={handleDayIncrement}>TEST</button> */}
-      <main
-        className={`main main-sum grid min-h-[100dvh] min-w-[100dvw] grid-cols-[150px_1fr_1fr] ${isLoading && initialLoad ? "grid-rows-[200px_auto]" : "grid-rows-[200px_auto_auto]"} items-center justify-items-center overflow-hidden rounded-[50px] bg-amNeutral100`}
-      >
-        <div className="contents">
-          <div className="grid-item header-item group flex cursor-pointer items-center justify-center rounded-bl-[50px] transition-all duration-300 ease-in">
-            <img
-              src={logo}
-              alt=""
-              onClick={toggleMenu}
-              className="group-hover:filter-iconHover w-[70%] transition-all duration-200 ease-in group-hover:scale-110"
-            />
+      {isBigScreen ? (
+        <main
+          className={`main main-sum grid min-h-[100dvh] min-w-[100dvw] grid-cols-[150px_1fr_1fr] ${isLoading && initialLoad ? "grid-rows-[200px_auto]" : "grid-rows-[200px_auto_auto]"} items-center justify-items-center overflow-hidden rounded-[50px] bg-amNeutral100`}
+        >
+          <div className="contents">
+            <div className="grid-item header-item group flex cursor-pointer items-center justify-center rounded-bl-[50px] transition-all duration-300 ease-in">
+              <img
+                src={logo}
+                alt=""
+                onClick={toggleMenu}
+                className="group-hover:filter-iconHover w-[70%] transition-all duration-200 ease-in group-hover:scale-110"
+              />
+            </div>
+            <h1 className="grid-item header-item font-numbers font-extrabold tracking-[4px]">
+              REALIZIRANO
+            </h1>
+            <h1 className="grid-item header-item rounded-br-[50px] font-numbers font-extrabold tracking-[4px]">
+              PLAN
+            </h1>
+            {/* <h1 className="grid-item header-item-last">%</h1> */}
           </div>
-          <h1 className="grid-item header-item font-numbers font-extrabold tracking-[4px]">
-            REALIZIRANO
-          </h1>
-          <h1 className="grid-item header-item rounded-br-[50px] font-numbers font-extrabold tracking-[4px]">
-            PLAN
-          </h1>
-          {/* <h1 className="grid-item header-item-last">%</h1> */}
-        </div>
-        {isLoading && initialLoad ? (
-          <ActivityIndicator />
-        ) : (
-          <>
-            <div className="contents">
+          {isLoading && initialLoad ? (
+            <ActivityIndicator />
+          ) : (
+            <>
+              <div className="contents">
+                <h2 className="grid-item font-numbers text-5xl font-extrabold text-amNeutral900 [text-orientation:upright] [writing-mode:vertical-lr]">
+                  DAN
+                </h2>
+                <div
+                  className="grid-item px-8 text-[10rem] font-extrabold"
+                  style={{ color: numberColor(dayDone, dayPlan) }}
+                >
+                  <AnimateNumber value={dayDone} />
+                </div>
+                <p className="grid-item px-8 text-[10rem] font-extrabold">
+                  {dayPlan}/{dayPlanEnd}
+                </p>
+                {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}
+              </div>
               <h2 className="grid-item font-numbers text-5xl font-extrabold text-amNeutral900 [text-orientation:upright] [writing-mode:vertical-lr]">
-                DAN
+                MESEC
               </h2>
               <div
                 className="grid-item px-8 text-[10rem] font-extrabold"
-                style={{ color: numberColor(dayDone, dayPlan) }}
+                style={{ color: numberColor(monthDone, monthPlan) }}
               >
-                <AnimateNumber value={dayDone} />
+                <AnimateNumber value={monthDone} />
               </div>
               <p className="grid-item px-8 text-[10rem] font-extrabold">
-                {dayPlan}/{dayPlanEnd}
+                {monthPlan}/{monthPlanCurrent}
               </p>
-              {/* <Progress className="progress" done={dayDone} plan={dayPlan} /> */}
+              {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
+              <div className="absolute bottom-2 right-12">
+                <LiveTimeCounter />
+              </div>
+            </>
+          )}
+        </main>
+      ) : (
+        <main className="main min-h-[100dvh] min-w-[100dvw] overflow-hidden rounded-[30px] bg-amNeutral100">
+          <header className="flex h-[100px] w-full justify-between rounded-[30px] bg-amPrimary">
+            <div className="group flex w-[150px] cursor-pointer items-center justify-center rounded-bl-[50px] transition-all duration-300 ease-in">
+              <img
+                src={logo}
+                alt="logo"
+                onClick={toggleMenu}
+                className="group-hover:filter-iconHover w-[50%] transition-all duration-200 ease-in group-hover:scale-110"
+              />
             </div>
-            <h2 className="grid-item font-numbers text-5xl font-extrabold text-amNeutral900 [text-orientation:upright] [writing-mode:vertical-lr]">
-              MESEC
-            </h2>
-            <div
-              className="grid-item px-8 text-[10rem] font-extrabold"
-              style={{ color: numberColor(monthDone, monthPlan) }}
-            >
-              <AnimateNumber value={monthDone} />
+            <h1 className="place-self-center self-center text-5xl font-extrabold text-white 2xl:text-[5.5rem]">
+              {line}
+            </h1>
+            <div className="flex w-[150px] items-center pr-10 text-white">
+              <LiveDateTime />
             </div>
-            <p className="grid-item px-8 text-[10rem] font-extrabold">
-              {monthPlan}/{monthPlanCurrent}
-            </p>
-            {/* <Progress className="progress" done={monthDone} plan={monthPlan} /> */}
-            <div className="absolute bottom-2 right-12">
-              <LiveTimeCounter />
-            </div>
-          </>
-        )}
-      </main>
+          </header>
+          <div className="h-full w-full">
+            {isLoading && initialLoad ? (
+              <div className="absolute top-1/2 mx-auto w-full">
+                <ActivityIndicator />
+              </div>
+            ) : (
+              <>
+                <div className="my-12 grid w-full grid-cols-[1fr]">
+                  <div className="flex min-h-[300px] flex-col items-center justify-center">
+                    <div className=" absolute left-10 mx-auto text-center text-3xl font-extrabold text-amNeutral900 [text-orientation:upright] [writing-mode:vertical-lr] ">
+                      DAN
+                    </div>
+                    <div className="flex h-full flex-col justify-center gap-2">
+                      <h2 className="text-center text-2xl font-bold sm:text-3xl">
+                        REALIZIRANO
+                      </h2>
+                      <div
+                        className="text-center text-6xl font-extrabold sm:text-7xl"
+                        style={{ color: numberColor(dayDone, dayPlan) }}
+                      >
+                        <AnimateNumber value={dayDone} />
+                      </div>
+                    </div>
+                    <div className="flex h-full flex-col justify-center gap-2">
+                      <h2 className="text-center text-2xl font-bold sm:text-3xl">
+                        PLAN
+                      </h2>
+                      <p className="text-center text-6xl font-extrabold sm:text-7xl">
+                        {dayPlan}/{dayPlanEnd}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="my-12 grid grid-cols-[1fr]">
+                  <div className="flex min-h-[300px] flex-col items-center justify-center">
+                    <div className="absolute left-10 mx-auto text-center text-3xl font-extrabold text-amNeutral900 [text-orientation:upright] [writing-mode:vertical-lr] ">
+                      MESEC
+                    </div>
+                    <div className="flex h-full flex-col justify-center gap-2">
+                      <h2 className="text-center text-2xl font-bold sm:text-3xl">
+                        REALIZIRANO
+                      </h2>
+                      <div
+                        className="text-center text-6xl font-extrabold sm:text-7xl"
+                        style={{ color: numberColor(monthDone, monthPlan) }}
+                      >
+                        <AnimateNumber value={monthDone} />
+                      </div>
+                    </div>
+                    <div className="flex h-full flex-col justify-center gap-2">
+                      <h2 className="text-center text-2xl font-bold sm:text-3xl">
+                        PLAN
+                      </h2>
+                      <p className="text-center text-6xl font-extrabold sm:text-7xl">
+                        {monthPlan}/{monthPlanCurrent}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        </main>
+      )}
+
       <div
         className={`side-menu fixed left-0 top-0 h-auto  bg-white ${isMenuOpen ? "translate-x-0" : "-translate-x-full"} z-50 rounded-br-[2rem] transition-all duration-200 ease-in-out`}
       >
@@ -192,6 +281,7 @@ const SumCounter = ({ logo }) => {
 
 SumCounter.propTypes = {
   logo: PropTypes.string.isRequired,
+  line: PropTypes.string.isRequired,
 };
 
 export default SumCounter;
