@@ -12,8 +12,8 @@ const GraphInfo = (props) => {
   ];
 
   return (
-    <div className="font-numbers mx-auto h-[80%] w-[80%] text-3xl">
-      <ul className="flex h-full flex-col justify-around">
+    <div className="mx-auto h-[80%] font-numbers text-2xl 2xl:w-[80%] 2xl:text-3xl">
+      <ul className="mx-auto flex h-full flex-col justify-around max-2xl:max-w-[800px] max-2xl:gap-4">
         {/* <li
           className={`flex cursor-pointer items-center justify-between pb-4 transition-all duration-200 ease-in-out hover:translate-x-2 ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-35 grayscale" : ""}`}
           onClick={() => props.onLineClick(62100)}
