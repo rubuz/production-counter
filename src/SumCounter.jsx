@@ -195,7 +195,7 @@ const SumCounter = ({ logo, line }) => {
                 src={logo}
                 alt="logo"
                 onClick={toggleMenu}
-                className="group-hover:filter-iconHover w-[50%] transition-all duration-200 ease-in group-hover:scale-110"
+                className="group-hover:filter-iconHover w-[40%] transition-all duration-200 ease-in group-hover:scale-110"
               />
             </div>
             <h1 className="place-self-center self-center text-5xl font-extrabold text-white 2xl:text-[5.5rem]">
