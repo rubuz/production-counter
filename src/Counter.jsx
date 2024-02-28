@@ -12,8 +12,7 @@ import LiveDateTime from "./Graphs/LiveTime";
 
 const Counter = ({ line, logo }) => {
   const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
-  const token =
-    "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh";
+  const token = import.meta.env.VITE_API_TOKEN;
   const [data, setData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isIdle = useIdle(5000);

@@ -16,6 +16,8 @@ const SumCounter = ({ logo, line }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
 
+  const token = import.meta.env.VITE_API_TOKEN;
+
   // Responsive displays
   const isBigScreen = useMediaQuery({ query: "(min-width: 1280px)" });
 
@@ -29,8 +31,7 @@ const SumCounter = ({ logo, line }) => {
             `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${lineId}`,
             {
               headers: {
-                Authorization:
-                  "Basic UHJvaXp2b2RuamFXQ0ZTZWN1cmVVc2VyOjl1aFk4dm1kc1Z5WnRIQ0g4ZDVh",
+                Authorization: token,
               },
             },
           );
