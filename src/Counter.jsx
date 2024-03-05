@@ -11,7 +11,7 @@ import ActivityIndicator from "./ActivityIndicator";
 import LiveDateTime from "./Graphs/LiveTime";
 
 const Counter = ({ line, logo }) => {
-  const url = `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${line}`;
+  const url = import.meta.env.VITE_API_URL + `${line}`;
   const token = import.meta.env.VITE_API_TOKEN;
   const [data, setData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

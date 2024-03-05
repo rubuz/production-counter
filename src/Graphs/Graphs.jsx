@@ -8,6 +8,7 @@ import ActivityIndicator from "../ActivityIndicator";
 
 const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
+  const url = import.meta.env.VITE_API_URL;
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [month, setMonth] = useState(false);
@@ -39,14 +40,11 @@ const Graphs = ({ logo }) => {
       // Use Promise.all() to fetch data for all production lines concurrently
       const responses = await Promise.all(
         productionLineIds.map(async (lineId) => {
-          const response = await fetch(
-            `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${lineId}`,
-            {
-              headers: {
-                Authorization: token,
-              },
+          const response = await fetch(url + `${lineId}`, {
+            headers: {
+              Authorization: token,
             },
-          );
+          });
 
           if (!response.ok) {
             throw new Error(`Failed to fetch data for line ${lineId}`);
