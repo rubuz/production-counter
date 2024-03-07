@@ -1,5 +1,5 @@
 ![Screenshot of page](https://i.postimg.cc/3R8TQpZv/image001.png)
-![Screenshot of page](https://i.postimg.cc/Sx9b0zTQ/Screenshot-2024-03-07-144017.png)
+![Screenshot of page](https://i.postimg.cc/R0QBYGwm/image003.png)
 
 # Production Counter
 
