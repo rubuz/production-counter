@@ -29,7 +29,7 @@ const SumCounter = ({ logo, line }) => {
       const responses = await Promise.all(
         productionLineIds.map(async (lineId) => {
           const response = await fetch(
-            `https://iws.adria-mobil.si/ProizvodnjaWCFService/ProizvodnjaWCFService.svc/GetData/${lineId}`,
+            url + `${lineId}`,
             {
               headers: {
                 Authorization: token,
