@@ -11,6 +11,7 @@ import LiveDateTime from "./Graphs/LiveTime";
 
 const SumCounter = ({ logo, line }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
+  const url = import.meta.env.VITE_API_URL;
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
