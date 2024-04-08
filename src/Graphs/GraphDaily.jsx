@@ -97,7 +97,9 @@ const GraphDaily = (props) => {
         }}
       >
         <div
-          className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(62100) ? "hidden" : ""}`}
+          className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 62100 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(62100) ? "hidden" : ""}`}
+          onMouseEnter={() => props.onLineClick(62100)}
+          onMouseLeave={() => props.onLineClick(null)}
         >
           <div className={`${planEndZero(62200) ? "opacity-100" : ""} `}>
             <span>{diffPlan(62100) > 0 ? "+" : ""}</span>
@@ -124,7 +126,9 @@ const GraphDaily = (props) => {
             }}
           >
             <div
-              className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(62200) ? "hidden" : ""}`}
+              className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 62200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(62200) ? "hidden" : ""}`}
+              onMouseEnter={() => props.onLineClick(62200)}
+              onMouseLeave={() => props.onLineClick(null)}
             >
               <div className={`${planEndZero(62200) ? "opacity-100" : ""}`}>
                 <span>{diffPlan(62200) > 0 ? "+" : ""}</span>
@@ -151,7 +155,9 @@ const GraphDaily = (props) => {
                 }}
               >
                 <div
-                  className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(63000) ? "hidden" : ""}`}
+                  className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 63000 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"}  ${planEndZero(63000) ? "hidden" : ""}`}
+                  onMouseEnter={() => props.onLineClick(63000)}
+                  onMouseLeave={() => props.onLineClick(null)}
                 >
                   <div className={`${planEndZero(63000) ? "opacity-100" : ""}`}>
                     <span>{diffPlan(63000) > 0 ? "+" : ""}</span>
@@ -178,7 +184,9 @@ const GraphDaily = (props) => {
                     }}
                   >
                     <div
-                      className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(63200) ? "hidden" : ""}`}
+                      className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 63200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(63200) ? "hidden" : ""}`}
+                      onMouseEnter={() => props.onLineClick(63200)}
+                      onMouseLeave={() => props.onLineClick(null)}
                     >
                       <div
                         className={`${planEndZero(63200) ? "opacity-100" : ""}`}
@@ -207,7 +215,9 @@ const GraphDaily = (props) => {
                         }}
                       >
                         <div
-                          className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} duration-200 ${planEndZero(65200) ? "hidden" : ""}`}
+                          className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 65200 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} duration-200 ${planEndZero(65200) ? "hidden" : ""}`}
+                          onMouseEnter={() => props.onLineClick(65200)}
+                          onMouseLeave={() => props.onLineClick(null)}
                         >
                           <div
                             className={`${planEndZero(65200) ? "opacity-100" : ""}`}
@@ -236,7 +246,9 @@ const GraphDaily = (props) => {
                             }}
                           >
                             <div
-                              className={`graph-number_div ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(65300) ? "hidden" : ""}`}
+                              className={`graph-number_div cursor-pointer ${props.selectedLine != null && props.selectedLine != 65300 ? "opacity-15 grayscale-0" : "opacity-100 grayscale-0"} ${planEndZero(65300) ? "hidden" : ""}`}
+                              onMouseEnter={() => props.onLineClick(65300)}
+                              onMouseLeave={() => props.onLineClick(null)}
                             >
                               <div
                                 className={`${planEndZero(65300) ? "opacity-100" : ""}`}
@@ -309,6 +321,7 @@ GraphDaily.propTypes = {
   graphData: PropTypes.object.isRequired,
   selectedLine: PropTypes.number,
   month: PropTypes.bool.isRequired,
+  onLineClick: PropTypes.func.isRequired,
 };
 
 export default GraphDaily;
