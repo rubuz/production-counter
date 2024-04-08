@@ -281,6 +281,7 @@ const Graphs = ({ logo }) => {
                     }
                     line65300bg={"#f0f0f0"}
                     line65300path={color65300under}
+                    onLineClick={handleLineClick}
                   />
                 </div>
                 <div className="absolute left-0 top-0 z-[1] w-full">
@@ -306,6 +307,7 @@ const Graphs = ({ logo }) => {
                     line65300={month ? percentMonth65300 : percentDay65300}
                     line65300bg={"transparent"}
                     line65300path={color65300}
+                    onLineClick={handleLineClick}
                   />
                 </div>
               </div>
