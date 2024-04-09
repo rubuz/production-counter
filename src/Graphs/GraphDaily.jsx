@@ -81,6 +81,23 @@ const GraphDaily = (props) => {
     }
   };
 
+  const lineName = (line) => {
+    switch (line) {
+      case 62100:
+        return "Prikolice 1";
+      case 62200:
+        return "Astela & Alpina";
+      case 63000:
+        return "Avtodomi";
+      case 63200:
+        return "Sonic & Coral Supreme";
+      case 65200:
+        return "Van Bič";
+      case 65300:
+        return "Active Bič";
+    }
+  };
+
   return (
     <div className="mx-auto w-[80%] text-lg max-md:text-base max-sm:text-base 2xl:text-xl">
       <CircularProgressbarWithChildren
@@ -265,8 +282,16 @@ const GraphDaily = (props) => {
                           </CircularProgressbarWithChildren>
                         </div>
                         <div
-                          className={`absolute text-lg 2xl:text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"}`}
+                          className={`absolute text-lg 2xl:text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"} max-w-[50%]`}
                         >
+                          <div className="text-center">
+                            <p className="text-xl font-bold 2xl:text-3xl">
+                              {props.selectedLine}{" "}
+                            </p>
+                            <p className="text-amAccent">
+                              {lineName(props.selectedLine)}
+                            </p>
+                          </div>
                           <p className="flex w-full justify-between gap-5">
                             Realizirano:{" "}
                             <span className="font-bold">
