@@ -6,7 +6,7 @@ const SideMenu = () => {
     { lineNumber: 63200, name: "Sonic & Coral Supreme", link: "/63200" },
     { lineNumber: 65200, name: "Van Bič", link: "/65200" },
     { lineNumber: 65300, name: "Active Bič", link: "/65300" },
-    { lineNumber: "SUMA", name: "Vse linije", link: "/suma" },
+    { lineNumber: "SUMA", name: "Vse linije", link: "/sum" },
     { lineNumber: "GRAFI", name: "", link: "/graphs" },
   ];
 

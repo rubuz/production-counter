@@ -13,6 +13,7 @@ import LiveDateTime from "./Graphs/LiveTime";
 const Counter = ({ line, logo }) => {
   const url = import.meta.env.VITE_API_URL + `${line}`;
   const token = import.meta.env.VITE_API_TOKEN;
+
   const [data, setData] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isIdle = useIdle(5000);

@@ -8,7 +8,7 @@ import ActivityIndicator from "../ActivityIndicator";
 
 const Graphs = ({ logo }) => {
   const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
-  const url = import.meta.env.VITE_API_URL;
+
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [month, setMonth] = useState(false);
@@ -17,6 +17,7 @@ const Graphs = ({ logo }) => {
   const [initialLoad, setInitialLoad] = useState(true);
 
   const token = import.meta.env.VITE_API_TOKEN;
+  const url = import.meta.env.VITE_API_URL;
 
   // Colors for graphs
   const color62100 = "#FF5733";

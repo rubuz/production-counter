@@ -10,14 +10,15 @@ import { useMediaQuery } from "react-responsive";
 import LiveDateTime from "./Graphs/LiveTime";
 
 const SumCounter = ({ logo, line }) => {
-  const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300]; // Add all production line IDs here
+  const productionLineIds = [62100, 62200, 63000, 63200, 65200, 65300];
+  // Add all production line IDs here
   const url = import.meta.env.VITE_API_URL;
+  const token = import.meta.env.VITE_API_TOKEN;
+
   const [totalData, setTotalData] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [initialLoad, setInitialLoad] = useState(true);
-
-  const token = import.meta.env.VITE_API_TOKEN;
 
   // Responsive displays
   const isBigScreen = useMediaQuery({ query: "(min-width: 1280px)" });
@@ -28,14 +29,11 @@ const SumCounter = ({ logo, line }) => {
       // Use Promise.all() to fetch data for all production lines concurrently
       const responses = await Promise.all(
         productionLineIds.map(async (lineId) => {
-          const response = await fetch(
-            url + `${lineId}`,
-            {
-              headers: {
-                Authorization: token,
-              },
+          const response = await fetch(url + `${lineId}`, {
+            headers: {
+              Authorization: token,
             },
-          );
+          });
 
           if (!response.ok) {
             throw new Error(`Failed to fetch data for line ${lineId}`);
