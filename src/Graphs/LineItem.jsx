@@ -10,7 +10,7 @@ const LineItem = ({
 }) => {
   return (
     <li
-      className={`flex cursor-pointer items-center justify-between pb-4 transition-all duration-200 ease-in-out hover:translate-x-2 ${selectedLine != null && selectedLine != line ? "opacity-35 grayscale" : ""}`}
+      className={`flex cursor-pointer items-center justify-between pb-4 transition-all duration-200 ease-in-out hover:translate-x-1 ${selectedLine != null && selectedLine != line ? "opacity-35 grayscale" : ""}`}
       // onClick={() => onLineClick(line)}
       onMouseEnter={() => onLineClick(line)}
       onMouseLeave={() => onLineClick(null)}
