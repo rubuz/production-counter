@@ -282,7 +282,7 @@ const GraphDaily = (props) => {
                           </CircularProgressbarWithChildren>
                         </div>
                         <div
-                          className={`absolute text-lg 2xl:text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"} max-w-[50%]`}
+                          className={`absolute text-lg 2xl:text-2xl ${props.selectedLine != null ? "opacity-100" : "opacity-0"} z-[99] max-w-[50%]`}
                         >
                           <div className="text-center">
                             <p className="text-xl font-bold 2xl:text-3xl">
@@ -292,21 +292,21 @@ const GraphDaily = (props) => {
                               {lineName(props.selectedLine)}
                             </p>
                           </div>
-                          <p className="flex w-full justify-between gap-5">
+                          <p className="flex w-full justify-between gap-5 text-amNeutral900">
                             Realizirano:{" "}
-                            <span className="font-bold">
+                            <span className="font-bold text-black">
                               {lineDataProizvedeno()}
                             </span>
                           </p>
-                          <p className="flex w-full justify-between gap-5">
+                          <p className="flex w-full justify-between gap-5 text-amNeutral900">
                             Plan trenutni:{" "}
-                            <span className="font-bold">
+                            <span className="font-bold text-black">
                               {lineDataPlanTrenutni()}
                             </span>
                           </p>
-                          <p className="flex w-full justify-between gap-5">
+                          <p className="flex w-full justify-between gap-5 text-amNeutral900">
                             Plan končni:{" "}
-                            <span className="font-bold">
+                            <span className="font-bold text-black">
                               {lineDataPlanFinal()}
                             </span>
                           </p>
