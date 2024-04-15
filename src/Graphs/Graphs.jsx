@@ -116,6 +116,26 @@ const Graphs = ({ logo }) => {
   const percentDay65200Planned = getPercentDayPlanned(65200);
   const percentDay65300Planned = getPercentDayPlanned(65300);
 
+  // Percent day - tekoci plan - proizvedeno
+  const getPercentDayCurrentPlan = (lineId) => {
+    if (Object.keys(totalData).length > 0) {
+      const percentDay = Math.round(
+        (totalData[lineId][0].proizvedeno /
+          Number(totalData[lineId][0].planirano)) *
+          100,
+      );
+      return isNaN(percentDay) ? 0 : percentDay;
+    }
+    return 0;
+  };
+
+  const percentDay62100CurrentPlan = getPercentDayCurrentPlan(62100);
+  const percentDay62200CurrentPlan = getPercentDayCurrentPlan(62200);
+  const percentDay63000CurrentPlan = getPercentDayCurrentPlan(63000);
+  const percentDay63200CurrentPlan = getPercentDayCurrentPlan(63200);
+  const percentDay65200CurrentPlan = getPercentDayCurrentPlan(65200);
+  const percentDay65300CurrentPlan = getPercentDayCurrentPlan(65300);
+
   // Percent month - proizvedeno
   const getPercentMonth = (lineId) => {
     if (Object.keys(totalData).length > 0) {
@@ -155,6 +175,26 @@ const Graphs = ({ logo }) => {
   const percentMonth63200Planned = getPercentMonthPlanned(63200);
   const percentMonth65200Planned = getPercentMonthPlanned(65200);
   const percentMonth65300Planned = getPercentMonthPlanned(65300);
+
+  // Percent month - tekoci plan - proizvedeno
+  const getPercentMonthCurrentPlan = (lineId) => {
+    if (Object.keys(totalData).length > 0) {
+      const percentMonth = Math.round(
+        (totalData[lineId][1].proizvedeno /
+          Number(totalData[lineId][1].planirano)) *
+          100,
+      );
+      return isNaN(percentMonth) ? 0 : percentMonth;
+    }
+    return 0;
+  };
+
+  const percentMonth62100CurrentPlan = getPercentMonthCurrentPlan(62100);
+  const percentMonth62200CurrentPlan = getPercentMonthCurrentPlan(62200);
+  const percentMonth63000CurrentPlan = getPercentMonthCurrentPlan(63000);
+  const percentMonth63200CurrentPlan = getPercentMonthCurrentPlan(63200);
+  const percentMonth65200CurrentPlan = getPercentMonthCurrentPlan(65200);
+  const percentMonth65300CurrentPlan = getPercentMonthCurrentPlan(65300);
 
   // console.log(percentMonth62100);
 
@@ -234,13 +274,48 @@ const Graphs = ({ logo }) => {
                     <h3>Mesec</h3>
                   </div>
                 </div>
-                <GraphInfo
+                {/* <GraphInfo
                   line62100={month ? percentMonth62100 : percentDay62100}
                   line62200={month ? percentMonth62200 : percentDay62200}
                   line63000={month ? percentMonth63000 : percentDay63000}
                   line63200={month ? percentMonth63200 : percentDay63200}
                   line65200={month ? percentMonth65200 : percentDay65200}
                   line65300={month ? percentMonth65300 : percentDay65300}
+                  graphData={totalData}
+                  onLineClick={handleLineClick}
+                  selectedLine={selectedLine}
+                /> */}
+                <GraphInfo
+                  line62100={
+                    month
+                      ? percentMonth62100CurrentPlan
+                      : percentDay62100CurrentPlan
+                  }
+                  line62200={
+                    month
+                      ? percentMonth62200CurrentPlan
+                      : percentDay62200CurrentPlan
+                  }
+                  line63000={
+                    month
+                      ? percentMonth63000CurrentPlan
+                      : percentDay63000CurrentPlan
+                  }
+                  line63200={
+                    month
+                      ? percentMonth63200CurrentPlan
+                      : percentDay63200CurrentPlan
+                  }
+                  line65200={
+                    month
+                      ? percentMonth65200CurrentPlan
+                      : percentDay65200CurrentPlan
+                  }
+                  line65300={
+                    month
+                      ? percentMonth65300CurrentPlan
+                      : percentDay65300CurrentPlan
+                  }
                   graphData={totalData}
                   onLineClick={handleLineClick}
                   selectedLine={selectedLine}
