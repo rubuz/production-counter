@@ -84,6 +84,7 @@ const Counter = ({ line, logo }) => {
   // icon click
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    console.log(isMenuOpen);
   };
 
   const toggleMenuIfOpen = () => {
